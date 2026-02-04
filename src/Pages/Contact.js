@@ -99,8 +99,8 @@ const Contact = () => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs md:text-sm text-gray-600 mb-1">Email</p>
-                  <a href="mailto:informkholdings" className="text-gray-900 font-medium hover:text-cyan-500 transition-colors text-sm md:text-base truncate block">
-                   informkholdings
+                  <a href="mailto:informkholdings@gmail.com" className="text-gray-900 font-medium hover:text-cyan-500 transition-colors text-sm md:text-base truncate block">
+                   informkholdings@gmail.com
                   </a>
                 </div>
               </div>
