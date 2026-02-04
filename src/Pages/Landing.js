@@ -59,11 +59,9 @@ const StatsCounter = () => {
 
     return (
       <div className="text-center opacity-0 animate-fade-in-up" style={{ animationDelay: `${delay}ms` }}>
-        {/* UPDATED: Changed text color to match the Learn More button (#1a202c) */}
         <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-[#1a202c]">
           {count}{suffix}
         </div>
-        {/* UPDATED: Changed label text to a darker gray for better contrast */}
         <div className="text-sm md:text-base text-gray-700 font-medium">
           {label}
         </div>
@@ -77,8 +75,8 @@ const StatsCounter = () => {
       className="bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-100"
     >
       <div className="max-w-7xl mx-auto">
-        {/* UPDATED: Changed grid layout for better mobile responsiveness */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+        {/* CHANGED: Always 4 columns, no responsive grid */}
+        <div className="grid grid-cols-4 gap-6 md:gap-8 lg:gap-12">
           <Counter target={1} suffix="" label="Years of Operation" delay={100} />
           <Counter target={50} suffix="+" label="Projects Delivered" delay={200} />
           <Counter target={20} suffix="+" label="Active Clients" delay={300} />
@@ -105,10 +103,10 @@ const Landing = () => {
       {/* Hero Section - Full white background */}
       <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* UPDATED: Changed layout for mobile - stacked on mobile, side-by-side on desktop */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Content - Order first on mobile */}
-            <div className="space-y-6 md:space-y-8 order-1 lg:order-1">
+          {/* CHANGED: Always grid with 2 columns, removed flex-col and responsive breakpoints */}
+          <div className="grid grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left Content */}
+            <div className="space-y-6 md:space-y-8">
               {/* Badge with animated border and blinking dot */}
               <div className="relative inline-block">
                 {/* Animated border container */}
@@ -157,9 +155,8 @@ const Landing = () => {
               </div>
             </div>
 
-            {/* Right Content - Landing Image - UPDATED: Removed container, made image bigger */}
-            <div className="flex justify-center lg:justify-end items-center h-full order-2 lg:order-2 w-full">
-              {/* UPDATED: Removed max-w-lg container and shadow, made image larger and full-width */}
+            {/* Right Content - Landing Image */}
+            <div className="flex justify-center lg:justify-end items-center h-full w-full">
               <img 
                 src="/landing.jpg" 
                 alt="MK Holdings Professional" 
@@ -246,8 +243,8 @@ const Landing = () => {
               </p>
             </div>
 
-            {/* Sectors Grid - Responsive columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            {/* Sectors Grid - CHANGED: Always 4 columns */}
+            <div className="grid grid-cols-4 gap-4 md:gap-6">
               {/* Real Estate Card */}
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                 <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 md:mb-6">
@@ -324,8 +321,8 @@ const Landing = () => {
               </p>
             </div>
 
-            {/* Team Grid - Responsive columns */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            {/* Team Grid - CHANGED: Always 3 columns */}
+            <div className="grid grid-cols-3 gap-4 md:gap-6">
               {/* Team Member 1 - With 2.jpg */}
               <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                 {/* Team Member Photo - 2.jpg */}
