@@ -143,7 +143,7 @@ const Landing = () => {
 
               {/* Description */}
               <p className="text-lg text-gray-600 leading-relaxed">
-               MK Holdings delivers innovative technology and home deco & renovations solutions across diverse sectors, creating lasting value and sustainable outcomes for clients.
+               MK Holdings delivers innovative technology, architectural designs and home deco & renovations solutions across diverse sectors, creating lasting value and sustainable outcomes for clients.
               </p>
 
               {/* Buttons */}
@@ -212,7 +212,7 @@ const Landing = () => {
                       Founded in 2025 by a group of innovative young professionals, the company was established with a bold vision to deliver modern, practical solutions across IT, home deco & renovations, and architecture. Built on creativity, technical skill, and a forward-thinking mindset, the company brings fresh perspectives to solving today's complex challenges.
                     </p>
                     <p className="text-gray-700 leading-relaxed">
-                      Currently, its core focus lies in information technology, home deco & renovations services, and architectural design, where it provides reliable, efficient, and well-structured solutions tailored to client needs. By combining digital innovation with sound home deco & renovations and thoughtful design, the company delivers work that is both functional and sustainable.
+                      Currently, its core focus lies in information technology, home deco & renovations services and architectural designs, where it provides reliable, efficient, and well-structured solutions tailored to client needs. By combining digital innovation with sound home deco & renovations and thoughtful design, the company delivers work that is both functional and sustainable.
                     </p>
                   </div>
                 </div>
