@@ -59,10 +59,12 @@ const StatsCounter = () => {
 
     return (
       <div className="text-center opacity-0 animate-fade-in-up" style={{ animationDelay: `${delay}ms` }}>
-        <div className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-[#1a202c]">
+        {/* UPDATED: Changed text color to match the Learn More button (#1a202c) */}
+        <div className="text-5xl font-bold mb-3 text-[#1a202c]">
           {count}{suffix}
         </div>
-        <div className="text-sm md:text-base text-gray-700 font-medium">
+        {/* UPDATED: Changed label text to a darker gray for better contrast */}
+        <div className="text-base text-gray-700 font-medium">
           {label}
         </div>
       </div>
@@ -72,11 +74,11 @@ const StatsCounter = () => {
   return (
     <div
       ref={sectionRef}
-      className="bg-white py-12 md:py-16 px-4 sm:px-6 lg:px-8 border-t border-gray-100"
+      className="bg-white py-16 px-8 border-t border-gray-100"
     >
       <div className="max-w-7xl mx-auto">
-        {/* CHANGED: Always 4 columns, no responsive grid */}
-        <div className="grid grid-cols-4 gap-6 md:gap-8 lg:gap-12">
+        {/* CHANGED: Always 4 columns */}
+        <div className="grid grid-cols-4 gap-12">
           <Counter target={1} suffix="" label="Years of Operation" delay={100} />
           <Counter target={50} suffix="+" label="Projects Delivered" delay={200} />
           <Counter target={20} suffix="+" label="Active Clients" delay={300} />
@@ -101,12 +103,12 @@ const Landing = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Full white background */}
-      <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-20 px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* CHANGED: Always grid with 2 columns, removed flex-col and responsive breakpoints */}
-          <div className="grid grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* CHANGED: Always 2 columns grid, removed all responsive classes */}
+          <div className="grid grid-cols-2 gap-12 items-center">
             {/* Left Content */}
-            <div className="space-y-6 md:space-y-8">
+            <div className="space-y-8">
               {/* Badge with animated border and blinking dot */}
               <div className="relative inline-block">
                 {/* Animated border container */}
@@ -134,13 +136,13 @@ const Landing = () => {
                 </div>
               </div>
 
-              {/* Heading - Responsive font sizes */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+              {/* Heading - Fixed font size */}
+              <h1 className="text-6xl font-bold text-gray-900 leading-tight">
                 Innovative Approaches for Sustainable Development
               </h1>
 
               {/* Description */}
-              <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+              <p className="text-lg text-gray-600 leading-relaxed">
                MK Holdings delivers innovative technology and engineering solutions across diverse sectors, creating lasting value and sustainable outcomes for clients.
               </p>
 
@@ -148,7 +150,7 @@ const Landing = () => {
               <div className="flex flex-wrap gap-4">
                 <button 
                   onClick={openModal}
-                  className="px-6 py-3 bg-[#1a202c] text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg w-full sm:w-auto"
+                  className="px-6 py-3 bg-[#1a202c] text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg"
                 >
                   Learn More
                 </button>
@@ -156,11 +158,11 @@ const Landing = () => {
             </div>
 
             {/* Right Content - Landing Image */}
-            <div className="flex justify-center lg:justify-end items-center h-full w-full">
+            <div className="flex justify-end items-center h-full w-full">
               <img 
                 src="/landing.jpg" 
                 alt="MK Holdings Professional" 
-                className="w-full h-auto lg:w-[120%] lg:max-w-none lg:ml-auto object-contain"
+                className="w-[120%] max-w-none ml-auto object-contain"
               />
             </div>
           </div>
@@ -231,76 +233,76 @@ const Landing = () => {
         )}
 
         {/* Core Sectors Section */}
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-20 px-8">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-4">
                 Our Vision
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto px-4">
                To deliver innovative technology and architectural solutions, solving problems with client satisfaction front and centre
               </p>
             </div>
 
             {/* Sectors Grid - CHANGED: Always 4 columns */}
-            <div className="grid grid-cols-4 gap-4 md:gap-6">
+            <div className="grid grid-cols-4 gap-6">
               {/* Real Estate Card */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <svg className="w-6 h-6 md:w-7 md:h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Smart Blueprint
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-base">
                   Lead digital transformation in construction, delivering future-ready, intelligent solutions for all.
                 </p>
               </div>
 
               {/* Financial Services Card */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <svg className="w-6 h-6 md:w-7 md:h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                   </svg>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                  Digital Empowerment
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-base">
                  Drive technology innovation that empowers people, streamlining processes through digitalisation.
                 </p>
               </div>
 
               {/* Private Equity Card */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <svg className="w-6 h-6 md:w-7 md:h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                  Visionary Spaces
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-base">
                   Design innovative, sustainable environment that uplift communities and bring people together.
                 </p>
               </div>
 
               {/* Global Trade Card */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-4 md:mb-6">
-                  <svg className="w-6 h-6 md:w-7 md:h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
+                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-3 md:mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   Next-Gen Software
                 </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-base">
                   Deliver cutting-edge Software upgrades that digitise workflows and connect users worldwide
                 </p>
               </div>
@@ -309,45 +311,45 @@ const Landing = () => {
         </section>
 
         {/* Our Team Section */}
-        <section className="py-12 md:py-20 px-4 sm:px-6 lg:px-8">
+        <section className="py-20 px-8">
           <div className="max-w-7xl mx-auto">
             {/* Section Header */}
-            <div className="text-center mb-12 md:mb-16">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            <div className="text-center mb-16">
+              <h2 className="text-5xl font-bold text-gray-900 mb-4">
                 Our Team
               </h2>
-              <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto px-4">
                 Meet our dedicated team of investment professionals and industry experts.
               </p>
             </div>
 
             {/* Team Grid - CHANGED: Always 3 columns */}
-            <div className="grid grid-cols-3 gap-4 md:gap-6">
+            <div className="grid grid-cols-3 gap-6">
               {/* Team Member 1 - With 2.jpg */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                 {/* Team Member Photo - 2.jpg */}
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 md:mb-6 overflow-hidden">
+                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
                   <img 
                     src="/2.jpg" 
                     alt="Team Member 1" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
                   Comfort T Mkunyadze
                 </h3>
-                <p className="text-blue-600 font-medium text-center mb-3 md:mb-4 text-sm md:text-base">
+                <p className="text-blue-600 font-medium text-center mb-4 text-base">
                   Co-Founder
                 </p>
-                <p className="text-gray-600 leading-relaxed text-center text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-center text-base">
                   Driven by vision and innovation, turning ambitious ideas into impactful solutions across IT, architecture and more.
                 </p>
               </div>
 
               {/* Team Member 2 - With 1.jpg (centered) */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                 {/* Team Member Photo - 1.jpg with object-position center */}
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 md:mb-6 overflow-hidden">
+                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
                   <img 
                     src="/1.jpg" 
                     alt="Team Member 2" 
@@ -355,34 +357,34 @@ const Landing = () => {
                     style={{ objectPosition: 'center' }}
                   />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
                   Leenox B Chapata
                 </h3>
-                <p className="text-blue-600 font-medium text-center mb-3 md:mb-4 text-sm md:text-base">
+                <p className="text-blue-600 font-medium text-center mb-4 text-base">
                   Operations Manager
                 </p>
-                <p className="text-gray-600 leading-relaxed text-center text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-center text-base">
                  A detail driven leader with deep expertise in architecture. Blending on-site know-how, design insight and team coordination to turn blueprints into real buildings.
                 </p>
               </div>
 
               {/* Team Member 3 - With 3.jpg */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
                 {/* Team Member Photo - 3.jpg */}
-                <div className="w-24 h-24 md:w-32 md:h-32 rounded-full mx-auto mb-4 md:mb-6 overflow-hidden">
+                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
                   <img 
                     src="/3.jpg" 
                     alt="Team Member 3" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 text-center">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
                   Takudzwa Phuwaphuwa
                 </h3>
-                <p className="text-blue-600 font-medium text-center mb-3 md:mb-4 text-sm md:text-base">
+                <p className="text-blue-600 font-medium text-center mb-4 text-base">
                   Sustainability Leader
                 </p>
-                <p className="text-gray-600 leading-relaxed text-center text-sm md:text-base">
+                <p className="text-gray-600 leading-relaxed text-center text-base">
                   A forward thinking strategist who drives eco-friendly practices across the organization, making sure sustainability aligns with company growth and delivers measurable ROI
                 </p>
               </div>
