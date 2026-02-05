@@ -131,14 +131,14 @@ const Landing = () => {
                 <div className="relative bg-white rounded-full px-4 py-2 shadow-sm z-10">
                   <div className="w-2 h-2 bg-[#1a202c] rounded-full animate-pulse inline-block mr-2"></div>
                   <span className="text-[#1a202c] text-sm font-medium">
-                    Reliable Strategic Ally
+                    Innovate. Design. Develop
                   </span>
                 </div>
               </div>
 
               {/* Heading - Fixed font size */}
               <h1 className="text-6xl font-bold text-gray-900 leading-tight">
-                Innovative Approaches for Sustainable Development
+                Delivering smart solutions in software development, architecture and Home Designs
               </h1>
 
               {/* Description */}
