@@ -23,7 +23,7 @@ const Header = () => {
             </div>
             <div className="min-w-0">
               <h1 className="text-lg md:text-xl font-bold text-white truncate">
-                MK Holdings
+                MK Solutions
               </h1>
               <p className="text-xs md:text-sm text-gray-300 hidden sm:block">
                 Excellence in Business Solutions
@@ -31,12 +31,11 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex">
-            <div className="flex space-x-6 lg:space-x-8 xl:space-x-12">
+          {/* Desktop Navigation - Standard spacing */}
+          <nav className="hidden md:flex flex-1 justify-end">
+            <div className="flex items-center space-x-6 lg:space-x-8">
               {[
                 { path: '/', label: 'Home' },
-                { path: '/about', label: 'About' },
                 { path: '/services', label: 'Services' },
                 { path: '/contact', label: 'Contact' }
               ].map((item) => (
@@ -84,7 +83,6 @@ const Header = () => {
             <div className="flex flex-col space-y-1">
               {[
                 { path: '/', label: 'Home' },
-                { path: '/about', label: 'About' },
                 { path: '/services', label: 'Services' },
                 { path: '/contact', label: 'Contact' }
               ].map((item) => (
@@ -104,7 +102,5 @@ const Header = () => {
     </header>
   );
 };
-
-
 
 export default Header;

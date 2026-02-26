@@ -1,506 +1,298 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-// Stats Counter Component - UPDATED for color matching and responsiveness
-const StatsCounter = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef(null);
+// ── Shared glassmorphism card style ───────────────────────────────────────────
+const cardStyle = {
+  background: 'rgba(255,255,255,0.04)',
+  backdropFilter: 'blur(6px)',
+};
+
+// ── Animated counter — fires immediately on mount ─────────────────────────────
+const Counter = ({ target, suffix = '', label, delay = 0 }) => {
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
+    const duration = 2000;
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let frame = 0;
+
+    const timer = setTimeout(() => {
+      const counter = setInterval(() => {
+        frame++;
+        current += increment;
+        if (frame >= steps) {
+          setCount(target);
+          clearInterval(counter);
+        } else {
+          setCount(Math.floor(current));
         }
-      },
-      { threshold: 0.1 }
-    );
+      }, duration / steps);
+      return () => clearInterval(counter);
+    }, delay);
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
-
-  const Counter = ({ target, suffix = '', label, delay = 0 }) => {
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-      if (!isVisible) return;
-
-      const duration = 2000;
-      const steps = 60;
-      const increment = target / steps;
-      let current = 0;
-      let frame = 0;
-
-      const timer = setTimeout(() => {
-        const counter = setInterval(() => {
-          frame++;
-          current += increment;
-
-          if (frame >= steps) {
-            setCount(target);
-            clearInterval(counter);
-          } else {
-            setCount(Math.floor(current));
-          }
-        }, duration / steps);
-
-        return () => clearInterval(counter);
-      }, delay);
-
-      return () => clearTimeout(timer);
-    }, [isVisible, target, delay]);
-
-    return (
-      <div className="text-center opacity-0 animate-fade-in-up" style={{ animationDelay: `${delay}ms` }}>
-        {/* UPDATED: Changed text color to match the Learn More button (#1a202c) */}
-        <div className="text-5xl font-bold mb-3 text-[#1a202c]">
-          {count}{suffix}
-        </div>
-        {/* UPDATED: Changed label text to a darker gray for better contrast */}
-        <div className="text-base text-gray-700 font-medium">
-          {label}
-        </div>
-      </div>
-    );
-  };
+    return () => clearTimeout(timer);
+  }, []); // fires on mount
 
   return (
-    <div
-      ref={sectionRef}
-      className="bg-white py-16 px-8 border-t border-gray-100"
-    >
-      <div className="max-w-7xl mx-auto">
-        {/* CHANGED: Always 4 columns */}
-        <div className="grid grid-cols-4 gap-12">
-          <Counter target={1} suffix="" label="Years of Operation" delay={100} />
-          <Counter target={50} suffix="+" label="Projects Delivered" delay={200} />
-          <Counter target={20} suffix="+" label="Active Clients" delay={300} />
-          <Counter target={100} suffix="%" label="Client Satisfaction" delay={400} />
-        </div>
-      </div>
+    <div className="text-center">
+      <div className="text-5xl font-bold text-white mb-2">{count}{suffix}</div>
+      <div className="text-gray-400 font-medium text-sm">{label}</div>
     </div>
   );
 };
 
+// ── Landing Page ──────────────────────────────────────────────────────────────
 const Landing = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div className="min-h-screen">
-      {/* Hero Section - Full white background */}
-      <section className="py-20 px-8 bg-white">
-        <div className="max-w-7xl mx-auto">
-          {/* CHANGED: Always 2 columns grid, removed all responsive classes */}
-          <div className="grid grid-cols-2 gap-12 items-center">
-            {/* Left Content */}
-            <div className="space-y-8">
-              {/* Badge with animated border and blinking dot */}
-              <div className="relative inline-block">
-                {/* Animated border container */}
-                <div className="absolute -inset-[3px] rounded-full overflow-hidden">
-                  {/* Top border segment */}
-                  <div className="absolute top-0 left-0 right-0 h-[3px] bg-[#1a202c] animate-[border-move-top_6s_linear_infinite]" 
-                       style={{ animationDelay: '0s' }}></div>
-                  {/* Right border segment */}
-                  <div className="absolute top-0 right-0 bottom-0 w-[3px] bg-[#1a202c] animate-[border-move-right_6s_linear_infinite]" 
-                       style={{ animationDelay: '1.5s' }}></div>
-                  {/* Bottom border segment */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#1a202c] animate-[border-move-bottom_6s_linear_infinite]" 
-                       style={{ animationDelay: '3s' }}></div>
-                  {/* Left border segment */}
-                  <div className="absolute top-0 left-0 bottom-0 w-[3px] bg-[#1a202c] animate-[border-move-left_6s_linear_infinite]" 
-                       style={{ animationDelay: '4.5s' }}></div>
-                </div>
-                
-                {/* Badge content */}
-                <div className="relative bg-white rounded-full px-4 py-2 shadow-sm z-10">
-                  <div className="w-2 h-2 bg-[#1a202c] rounded-full animate-pulse inline-block mr-2"></div>
-                  <span className="text-[#1a202c] text-sm font-medium">
-                    Innovate. Design. Develop
-                  </span>
-                </div>
-              </div>
+    <div className="min-h-screen bg-[#1a202c] relative overflow-hidden">
 
-              {/* Heading - Fixed font size */}
-              <h1 className="text-6xl font-bold text-gray-900 leading-tight">
-                Delivering smart solutions in software development, architecture and Home Designs
-              </h1>
+      {/* Page-level ambient floating circles */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/3 translate-x-1/3 animate-float-slow pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 rounded-full translate-y-1/3 -translate-x-1/3 animate-float-medium pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-400 opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-float-fast pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-white opacity-5 rounded-full animate-float-medium pointer-events-none" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-32 h-32 bg-blue-300 opacity-5 rounded-full animate-float-slow pointer-events-none" style={{ animationDelay: '3s' }}></div>
 
-              {/* Description */}
-              <p className="text-lg text-gray-600 leading-relaxed">
-               MK Holdings delivers innovative technology, architectural designs and home deco & renovations solutions across diverse sectors, creating lasting value and sustainable outcomes for clients.
-              </p>
+      <div className="relative z-10 pt-12 pb-16 px-8 flex flex-col gap-8 max-w-7xl mx-auto">
 
-              {/* Buttons */}
-              <div className="flex flex-wrap gap-4">
-                <button 
-                  onClick={openModal}
-                  className="px-6 py-3 bg-[#1a202c] text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 shadow-lg"
-                >
-                  Learn More
-                </button>
-              </div>
+        {/* ── 1. HERO ───────────────────────────────────────────────────────── */}
+        <div
+          className="rounded-2xl border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 px-12 py-20 text-center"
+          style={cardStyle}
+        >
+          <div className="max-w-3xl mx-auto space-y-8">
+            <div className="inline-flex items-center gap-2 bg-white bg-opacity-10 rounded-full px-4 py-2">
+              <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+              <span className="text-white text-sm font-medium tracking-wide">One-stop software and architecture hub</span>
             </div>
+            <h1 className="text-5xl font-bold text-white leading-tight">
+              Delivering smart solutions in software development and architecture
+            </h1>
+            <p className="text-gray-300 text-lg leading-relaxed">
+             MK Solutions specializes in professional web development and architectural design services
+             Delivering innovative digital solutions and sustainable building designs that create lasting value for our clients across diverse sectors.
 
-            {/* Right Content - Landing Image */}
-            <div className="flex justify-end items-center h-full w-full">
-              <img 
-                src="/landing.jpg" 
-                alt="MK Holdings Professional" 
-                className="w-[120%] max-w-none ml-auto object-contain"
-              />
+            </p>
+            <div>
+              <Link
+                to="/services"
+                className="px-6 py-3 bg-white text-[#1a202c] font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-200 shadow-lg inline-block"
+              >
+                Our Services
+              </Link>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* Statistics Counter Strip - Right at the base of hero image */}
-      <StatsCounter />
+        {/* ── 2. STATS — bare on background, no card ───────────────────────── */}
+        <div className="grid grid-cols-4 divide-x divide-white divide-opacity-10 py-6">
+          <div className="py-4 px-8">
+            <Counter target={1}   suffix=""  label="Years of Operation" delay={100} />
+          </div>
+          <div className="py-4 px-8">
+            <Counter target={50}  suffix="+" label="Projects Delivered"  delay={300} />
+          </div>
+          <div className="py-4 px-8">
+            <Counter target={20}  suffix="+" label="Active Clients"      delay={500} />
+          </div>
+          <div className="py-4 px-8">
+            <Counter target={100} suffix="%" label="Client Satisfaction" delay={700} />
+          </div>
+        </div>
 
-      {/* Everything AFTER the Hero section gets the gradient background */}
-      <div className="bg-gradient-to-br from-gray-50 to-blue-50">
-        {/* Modal for Learn More */}
-        {isModalOpen && (
-          <div className="fixed inset-0 z-50 overflow-y-auto">
-            {/* Backdrop */}
-            <div 
-              className="fixed inset-0 bg-black bg-opacity-50 transition-opacity"
-              onClick={closeModal}
-            ></div>
+        {/* ── 3. WHY CHOOSE US ──────────────────────────────────────────────── */}
+<div
+  className="rounded-2xl border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 overflow-hidden"
+  style={cardStyle}
+>
+  {/* Header — centred title only (no pill) - matching Our Team styling */}
+  <div className="px-12 pt-12 pb-8 text-center border-b border-white border-opacity-10">
+    <h2 className="text-4xl font-bold text-white mb-4">Why Choose Us</h2>
+    <p className="text-gray-400 text-base max-w-3xl mx-auto">
+      Your Trusted Partner in Innovation & Design
+    </p>
+  </div>
 
-            {/* Modal Container */}
-            <div className="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-              <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                {/* Modal Header */}
-                <div className="bg-[#1a202c] px-6 py-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold leading-6 text-white">
-                      MK Holdings
-                    </h3>
-                    <button
-                      type="button"
-                      className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      onClick={closeModal}
-                    >
-                      <span className="sr-only">Close</span>
-                      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    </button>
+  {/* Content area - matching Our Team's structure */}
+  <div className="p-8">
+    <p className="text-gray-300 text-base leading-relaxed">
+      At MK Solutions, we don't just build — we transform visions into reality. Whether you're looking to
+      elevate your space with precision-crafted architectural plans or scale your business with cutting-edge
+      web development, we bring the expertise, creativity, and dedication that set us apart. Our architectural
+      solutions are thoughtfully designed to blend functionality with aesthetic excellence, delivering spaces
+      that inspire and endure. On the digital front, our modern web development services are engineered for
+      performance, user experience, and lasting impact — tailored to help your brand thrive in an ever-evolving
+      landscape. With MK Solutions, you gain more than a service provider; you gain a committed partner driven
+      by quality, innovation, and your success.
+    </p>
+  </div>
+</div>
+
+        {/* ── 4. OUR VISION ────────────────────────────────────────────────── */}
+        <div
+          className="rounded-2xl border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 overflow-hidden"
+          style={cardStyle}
+        >
+          {/* Header — centred title + description */}
+          <div className="px-12 pt-12 pb-8 text-center border-b border-white border-opacity-10">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Vision</h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              To deliver innovative technology and architectural solutions, solving problems with client satisfaction front and centre
+            </p>
+          </div>
+
+          {/* Vision sub-cards — edge-to-edge, separated by white vertical borders */}
+          <div className="grid grid-cols-4 divide-x divide-white divide-opacity-10">
+            {[
+              {
+                title: 'Smart Blueprint',
+                desc: 'Lead digital transformation in construction, delivering future-ready, intelligent solutions for all.',
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              },
+              {
+                title: 'Digital Empowerment',
+                desc: 'Drive technology innovation that empowers people, streamlining processes through digitalisation.',
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+              },
+              {
+                title: 'Visionary Spaces',
+                desc: 'Design innovative, sustainable environments that uplift communities and bring people together.',
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              },
+              {
+                title: 'Next-Gen Software',
+                desc: 'Deliver cutting-edge software upgrades that digitise workflows and connect users worldwide.',
+                icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              },
+            ].map((card, i) => (
+              <div key={i} className="p-8 group hover:bg-white hover:bg-opacity-5 transition-all duration-300">
+                <div className="w-14 h-14 bg-white bg-opacity-10 rounded-xl flex items-center justify-center mb-6 relative">
+                  <span className="absolute w-3 h-3 bg-blue-300 rounded-full opacity-0 group-hover:opacity-60 animate-orbit-1"></span>
+                  <span className="absolute w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-40 animate-orbit-2"></span>
+                  <span className="absolute inset-0 rounded-xl border-2 border-blue-300 opacity-0 group-hover:opacity-40 animate-ring-ping"></span>
+                  <svg className="w-7 h-7 text-blue-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {card.icon}
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-white mb-3">{card.title}</h3>
+                <p className="text-gray-400 leading-relaxed text-sm">{card.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── 5. OUR TEAM ──────────────────────────────────────────────────── */}
+        <div
+          className="rounded-2xl border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 overflow-hidden"
+          style={cardStyle}
+        >
+          {/* Header — centred title + description */}
+          <div className="px-12 pt-12 pb-8 text-center border-b border-white border-opacity-10">
+            <h2 className="text-4xl font-bold text-white mb-4">Our Team</h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              Meet our dedicated team of innovative professionals driving excellence across every sector.
+            </p>
+          </div>
+
+          {/* Team cards — white bg, rounded corners, padded inside the dark container */}
+          <div className="grid grid-cols-3 gap-6 p-8">
+            {[
+              {
+                img: '/2.jpg',
+                name: 'Comfort T Mkunyadze',
+                role: 'Co-Founder',
+                desc: 'Driven by vision and innovation, turning ambitious ideas into impactful solutions across IT, architecture and more.'
+              },
+              {
+                img: '/1.jpg',
+                name: 'Leenox B Chapata',
+                role: 'Operations Manager',
+                desc: 'A detail driven leader with deep expertise in architecture. Blending on-site know-how, design insight and team coordination to turn blueprints into real buildings.'
+              },
+              {
+                img: '/3.jpg',
+                name: 'Takudzwa Phuwaphuwa',
+                role: 'Sustainability Leader',
+                desc: 'A forward thinking strategist who drives eco-friendly practices across the organization, making sure sustainability aligns with company growth and delivers measurable ROI.'
+              },
+            ].map((member, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-2xl p-8 flex flex-col items-center text-center group hover:shadow-xl transition-all duration-300"
+              >
+                {/* Avatar with orbiting circles */}
+                <div className="w-32 h-32 rounded-full mx-auto mb-6 relative flex items-center justify-center">
+                  <span className="absolute w-4 h-4 bg-blue-300 rounded-full opacity-0 group-hover:opacity-50 animate-orbit-avatar-1"></span>
+                  <span className="absolute w-3 h-3 bg-blue-500 rounded-full opacity-0 group-hover:opacity-30 animate-orbit-avatar-2"></span>
+                  <span className="absolute inset-0 rounded-full border-2 border-blue-300 opacity-0 group-hover:opacity-60 animate-ring-ping-slow"></span>
+                  <div className="w-32 h-32 rounded-full overflow-hidden relative z-10">
+                    <img src={member.img} alt={member.name} className="w-full h-full object-cover object-center" />
                   </div>
                 </div>
-
-                {/* Modal Content */}
-                <div className="bg-white px-6 py-6">
-                  <div className="mt-2">
-                    <p className="text-gray-700 leading-relaxed mb-4">
-                      Founded in 2025 by a group of innovative young professionals, the company was established with a bold vision to deliver modern, practical solutions across IT, home deco & renovations, and architecture. Built on creativity, technical skill, and a forward-thinking mindset, the company brings fresh perspectives to solving today's complex challenges.
-                    </p>
-                    <p className="text-gray-700 leading-relaxed">
-                      Currently, its core focus lies in information technology, home deco & renovations services and architectural designs, where it provides reliable, efficient, and well-structured solutions tailored to client needs. By combining digital innovation with sound home deco & renovations and thoughtful design, the company delivers work that is both functional and sustainable.
-                    </p>
-                  </div>
-                </div>
-
-                {/* Modal Footer */}
-                <div className="bg-gray-50 px-6 py-4">
-                  <button
-                    type="button"
-                    className="inline-flex w-full justify-center rounded-md bg-[#1a202c] px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                    onClick={closeModal}
-                  >
-                    Close
-                  </button>
-                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
+                <p className="text-blue-600 font-medium mb-4 text-sm">{member.role}</p>
+                <p className="text-gray-600 leading-relaxed text-sm">{member.desc}</p>
               </div>
-            </div>
+            ))}
           </div>
-        )}
+        </div>
 
-        {/* Core Sectors Section */}
-        <section className="py-20 px-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-900 mb-4">
-                Our Vision
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto px-4">
-               To deliver innovative technology and architectural solutions, solving problems with client satisfaction front and centre
-              </p>
-            </div>
-
-            {/* Sectors Grid - CHANGED: Always 4 columns */}
-            <div className="grid grid-cols-4 gap-6">
-              {/* Real Estate Card */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Smart Blueprint
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  Lead digital transformation in construction, delivering future-ready, intelligent solutions for all.
-                </p>
-              </div>
-
-              {/* Financial Services Card */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                 Digital Empowerment
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                 Drive technology innovation that empowers people, streamlining processes through digitalisation.
-                </p>
-              </div>
-
-              {/* Private Equity Card */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                 Visionary Spaces
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  Design innovative, sustainable environment that uplift communities and bring people together.
-                </p>
-              </div>
-
-              {/* Global Trade Card */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                  <svg className="w-7 h-7 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
-                  Next-Gen Software
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-base">
-                  Deliver cutting-edge Software upgrades that digitise workflows and connect users worldwide
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Team Section */}
-        <section className="py-20 px-8">
-          <div className="max-w-7xl mx-auto">
-            {/* Section Header */}
-            <div className="text-center mb-16">
-              <h2 className="text-5xl font-bold text-gray-900 mb-4">
-                Our Team
-              </h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto px-4">
-                Meet our dedicated team of investment professionals and industry experts.
-              </p>
-            </div>
-
-            {/* Team Grid - CHANGED: Always 3 columns */}
-            <div className="grid grid-cols-3 gap-6">
-              {/* Team Member 1 - With 2.jpg */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                {/* Team Member Photo - 2.jpg */}
-                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
-                  <img 
-                    src="/2.jpg" 
-                    alt="Team Member 1" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
-                  Comfort T Mkunyadze
-                </h3>
-                <p className="text-blue-600 font-medium text-center mb-4 text-base">
-                  Co-Founder
-                </p>
-                <p className="text-gray-600 leading-relaxed text-center text-base">
-                  Driven by vision and innovation, turning ambitious ideas into impactful solutions across IT, architecture and more.
-                </p>
-              </div>
-
-              {/* Team Member 2 - With 1.jpg (centered) */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                {/* Team Member Photo - 1.jpg with object-position center */}
-                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
-                  <img 
-                    src="/1.jpg" 
-                    alt="Team Member 2" 
-                    className="w-full h-full object-cover object-center"
-                    style={{ objectPosition: 'center' }}
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
-                  Leenox B Chapata
-                </h3>
-                <p className="text-blue-600 font-medium text-center mb-4 text-base">
-                  Operations Manager
-                </p>
-                <p className="text-gray-600 leading-relaxed text-center text-base">
-                 A detail driven leader with deep expertise in architecture. Blending on-site know-how, design insight and team coordination to turn blueprints into real buildings.
-                </p>
-              </div>
-
-              {/* Team Member 3 - With 3.jpg */}
-              <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100">
-                {/* Team Member Photo - 3.jpg */}
-                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
-                  <img 
-                    src="/3.jpg" 
-                    alt="Team Member 3" 
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">
-                  Takudzwa Phuwaphuwa
-                </h3>
-                <p className="text-blue-600 font-medium text-center mb-4 text-base">
-                  Sustainability Leader
-                </p>
-                <p className="text-gray-600 leading-relaxed text-center text-base">
-                  A forward thinking strategist who drives eco-friendly practices across the organization, making sure sustainability aligns with company growth and delivers measurable ROI
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
 
-      {/* Add custom CSS animations */}
       <style jsx>{`
-        @keyframes border-move-top {
-          0%, 24.9% {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-          25% {
-            transform: translateX(-100%);
-            opacity: 1;
-          }
-          50% {
-            transform: translateX(0%);
-            opacity: 1;
-          }
-          75% {
-            transform: translateX(100%);
-            opacity: 1;
-          }
-          75.1%, 100% {
-            transform: translateX(100%);
-            opacity: 0;
-          }
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+          33%  { transform: translateY(-18px) translateX(10px) scale(1.05); }
+          66%  { transform: translateY(10px) translateX(-8px) scale(0.97); }
         }
-        
-        @keyframes border-move-right {
-          0%, 24.9% {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-          25% {
-            transform: translateY(-100%);
-            opacity: 1;
-          }
-          50% {
-            transform: translateY(0%);
-            opacity: 1;
-          }
-          75% {
-            transform: translateY(100%);
-            opacity: 1;
-          }
-          75.1%, 100% {
-            transform: translateY(100%);
-            opacity: 0;
-          }
+        @keyframes float-medium {
+          0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+          40%  { transform: translateY(15px) translateX(-12px) scale(1.08); }
+          70%  { transform: translateY(-8px) translateX(6px) scale(0.95); }
         }
-        
-        @keyframes border-move-bottom {
-          0%, 24.9% {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          25% {
-            transform: translateX(100%);
-            opacity: 1;
-          }
-          50% {
-            transform: translateX(0%);
-            opacity: 1;
-          }
-          75% {
-            transform: translateX(-100%);
-            opacity: 1;
-          }
-          75.1%, 100% {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
+        @keyframes float-fast {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50%  { transform: translateY(-22px) translateX(14px); }
         }
-        
-        @keyframes border-move-left {
-          0%, 24.9% {
-            transform: translateY(100%);
-            opacity: 0;
-          }
-          25% {
-            transform: translateY(100%);
-            opacity: 1;
-          }
-          50% {
-            transform: translateY(0%);
-            opacity: 1;
-          }
-          75% {
-            transform: translateY(-100%);
-            opacity: 1;
-          }
-          75.1%, 100% {
-            transform: translateY(-100%);
-            opacity: 0;
-          }
-        }
+        .animate-float-slow   { animation: float-slow   8s ease-in-out infinite; }
+        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+        .animate-float-fast   { animation: float-fast   4s ease-in-out infinite; }
 
-        @keyframes fade-in-up {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
+        @keyframes orbit-1 {
+          0%   { transform: rotate(0deg)   translateX(22px) rotate(0deg);   }
+          100% { transform: rotate(360deg) translateX(22px) rotate(-360deg); }
         }
+        @keyframes orbit-2 {
+          0%   { transform: rotate(180deg) translateX(18px) rotate(-180deg); }
+          100% { transform: rotate(540deg) translateX(18px) rotate(-540deg); }
+        }
+        .animate-orbit-1 { animation: orbit-1 2s linear infinite; }
+        .animate-orbit-2 { animation: orbit-2 3s linear infinite; }
 
-        .animate-fade-in-up {
-          animation: fade-in-up 0.8s ease forwards;
+        @keyframes ring-ping {
+          0%   { transform: scale(1);   opacity: 0.8; }
+          100% { transform: scale(1.6); opacity: 0;   }
         }
+        .animate-ring-ping { animation: ring-ping 1.4s ease-out infinite; }
+
+        @keyframes orbit-avatar-1 {
+          0%   { transform: rotate(0deg)   translateX(68px) rotate(0deg);   }
+          100% { transform: rotate(360deg) translateX(68px) rotate(-360deg); }
+        }
+        @keyframes orbit-avatar-2 {
+          0%   { transform: rotate(120deg) translateX(72px) rotate(-120deg); }
+          100% { transform: rotate(480deg) translateX(72px) rotate(-480deg); }
+        }
+        .animate-orbit-avatar-1 { animation: orbit-avatar-1 3s   linear infinite; }
+        .animate-orbit-avatar-2 { animation: orbit-avatar-2 4.5s linear infinite; }
+
+        @keyframes ring-ping-slow {
+          0%   { transform: scale(1);    opacity: 0.6; }
+          100% { transform: scale(1.15); opacity: 0;   }
+        }
+        .animate-ring-ping-slow { animation: ring-ping-slow 1.8s ease-out infinite; }
       `}</style>
     </div>
   );

@@ -13,7 +13,7 @@ const Footer = () => {
                 <span className="text-white font-bold text-base md:text-lg">MK</span>
               </div>
               <h3 className="text-lg md:text-xl font-semibold text-white">
-                MK Holdings
+                MK Solutions
               </h3>
             </div>
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
@@ -28,7 +28,7 @@ const Footer = () => {
               SERVICES
             </h4>
             <ul className="space-y-2 md:space-y-3">
-              {['Architecture', 'Software Dev and Management', 'Home Decor', 'Renovations'].map((service, index) => (
+              {['Architecture', 'Web Development', 'IT Consultancy'].map((service, index) => (
                 <li key={index}>
                   <a
                     href={`#${service.toLowerCase().replace(' ', '-')}`}
@@ -70,7 +70,7 @@ const Footer = () => {
         {/* Bottom Bar - Improved spacing for mobile */}
         <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-700">
           <p className="text-center text-gray-400 text-sm md:text-base px-4">
-            © 2026 MK Holdings. All rights reserved.
+            © 2026 MK Solutions. All rights reserved.
           </p>
         </div>
       </div>

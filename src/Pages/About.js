@@ -19,7 +19,7 @@ const About = () => {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 md:mb-12">
-            MK Holdings operates across IT services, software development, architectural planning and design & builds.
+            MK Solutions operates across IT services, software development, architectural planning and design & builds.
           </p>
 
           {/* Features List */}

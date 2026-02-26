@@ -3,79 +3,115 @@ import React from 'react';
 const Services = () => {
   const services = [
     {
-      title: "Architecture",
-      description: "Innovative property design and development across commercial and residential sectors.",
-      icon: (
-        <svg className="w-6 h-6 md:w-8 md:h-8 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-      )
+      title: "Architectural Plan Drawing",
+      subtitle: "Residential & Commercial Stands",
+      description:
+        "From bespoke residential homes to large-scale commercial developments, MK Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
+      image: "/archi.jpg",
+      alt: "Architectural Plan Drawing"
     },
     {
-      title: "Technology",
-      description: "Comprehensive technology solutions and advisory services for optimal outcomes.",
-      icon: (
-        <svg className="w-6 h-6 md:w-8 md:h-8 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      )
+      title: "Web Development",
+      subtitle: "Modern Digital Experiences",
+      description:
+        "We design and build high-performance websites and web applications that captivate users and drive results. From sleek corporate platforms to dynamic e-commerce solutions, our development team combines clean code with compelling design — ensuring your digital presence is fast, responsive, and built to scale with your ambitions.",
+      image: "/web.jpg",
+      alt: "Web Development"
     },
     {
-      title: "Home Decorations",
-      description: "Innovative home decoration solutions for modern living spaces.",
-      icon: (
-        <svg className="w-6 h-6 md:w-8 md:h-8 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-        </svg>
-      )
-    },
-    {
-      title: "Renovations",
-      description: "Specialized renovation services in residential and commercial properties.",
-      icon: (
-        <svg className="w-6 h-6 md:w-8 md:h-8 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      )
+      title: "Software Management & IT Consultancy",
+      subtitle: "Strategic Technology Guidance",
+      description:
+        "Navigate the complexities of modern technology with confidence. MK Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
+      image: "/it.jpg",
+      alt: "IT Consultancy"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <section className="pt-12 md:pt-16 pb-8 md:pb-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
-              Our Core Sectors
-            </h2>
-            <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-              A multidisciplinary company combining software development, architectural design, and home décor to create smart, functional, and beautifully designed solutions.
+    <div className="min-h-screen bg-[#1a202c] relative overflow-hidden">
+
+      {/* Large ambient floating circles on the page background */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/3 translate-x-1/3 animate-float-slow pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 rounded-full translate-y-1/3 -translate-x-1/3 animate-float-medium pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-400 opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-float-fast pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-white opacity-5 rounded-full animate-float-medium pointer-events-none" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-32 h-32 bg-blue-300 opacity-5 rounded-full animate-float-slow pointer-events-none" style={{ animationDelay: '3s' }}></div>
+
+      <section className="relative z-10 pt-12 pb-16 px-8">
+        <div className="max-w-7xl mx-auto">
+
+          {/* Section Header - "What We Offer" removed */}
+          <div className="text-center mb-14">
+            <h2 className="text-4xl font-bold text-white mb-4 leading-tight">Our Core Services</h2>
+            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+              A multidisciplinary company combining architectural design, web development, and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
             </p>
           </div>
 
-          {/* Sectors Grid - Responsive 2x2 Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+          {/* Service Cards */}
+          <div className="flex flex-col gap-8">
             {services.map((service, index) => (
-              <div 
+              <div
                 key={index}
-                className="bg-white rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 h-full"
+                className="rounded-2xl overflow-hidden flex flex-row border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 hover:shadow-2xl"
+                style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(6px)' }}
               >
-                <div className="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 bg-cyan-50 rounded-lg md:rounded-xl flex items-center justify-center mb-4 md:mb-5 lg:mb-6">
-                  {service.icon}
+                {/* Left: Image */}
+                <div className="w-2/5 flex-shrink-0 relative overflow-hidden" style={{ minHeight: '260px' }}>
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Fade edge into card */}
+                  <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#1a202c] to-transparent opacity-60"></div>
                 </div>
-                <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed text-sm md:text-base lg:text-base">
-                  {service.description}
-                </p>
+
+                {/* Vertical white divider line */}
+                <div className="w-px bg-white opacity-20 flex-shrink-0"></div>
+
+                {/* Right: Text */}
+                <div className="flex-1 p-10 flex flex-col justify-center">
+                  {/* Subtitle pill */}
+                  <div className="inline-flex items-center gap-2 bg-white bg-opacity-10 rounded-full px-3 py-1 mb-5 w-fit">
+                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
+                    <span className="text-blue-300 text-xs font-semibold tracking-wide uppercase">{service.subtitle}</span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed text-base">
+                    {service.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
+
+      <style jsx>{`
+        @keyframes float-slow {
+          0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+          33% { transform: translateY(-18px) translateX(10px) scale(1.05); }
+          66% { transform: translateY(10px) translateX(-8px) scale(0.97); }
+        }
+        @keyframes float-medium {
+          0%, 100% { transform: translateY(0px) translateX(0px) scale(1); }
+          40% { transform: translateY(15px) translateX(-12px) scale(1.08); }
+          70% { transform: translateY(-8px) translateX(6px) scale(0.95); }
+        }
+        @keyframes float-fast {
+          0%, 100% { transform: translateY(0px) translateX(0px); }
+          50% { transform: translateY(-22px) translateX(14px); }
+        }
+        .animate-float-slow { animation: float-slow 8s ease-in-out infinite; }
+        .animate-float-medium { animation: float-medium 6s ease-in-out infinite; }
+        .animate-float-fast { animation: float-fast 4s ease-in-out infinite; }
+      `}</style>
     </div>
   );
 };
