@@ -31,58 +31,63 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-[#1a202c] relative overflow-hidden">
 
-      {/* Large ambient floating circles on the page background */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -translate-y-1/3 translate-x-1/3 animate-float-slow pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-white opacity-5 rounded-full translate-y-1/3 -translate-x-1/3 animate-float-medium pointer-events-none"></div>
-      <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-blue-400 opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-float-fast pointer-events-none"></div>
-      <div className="absolute top-1/4 left-1/4 w-40 h-40 bg-white opacity-5 rounded-full animate-float-medium pointer-events-none" style={{ animationDelay: '1.5s' }}></div>
-      <div className="absolute bottom-1/3 right-1/4 w-32 h-32 bg-blue-300 opacity-5 rounded-full animate-float-slow pointer-events-none" style={{ animationDelay: '3s' }}></div>
+      {/* Large ambient floating circles on the page background - responsive sizes */}
+      <div className="absolute top-0 right-0 w-48 sm:w-64 md:w-80 lg:w-96 h-48 sm:h-64 md:h-80 lg:h-96 bg-white opacity-5 rounded-full -translate-y-1/3 translate-x-1/3 animate-float-slow pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-40 sm:w-56 md:w-72 lg:w-80 h-40 sm:h-56 md:h-72 lg:h-80 bg-white opacity-5 rounded-full translate-y-1/3 -translate-x-1/3 animate-float-medium pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 w-32 sm:w-48 md:w-56 lg:w-64 h-32 sm:h-48 md:h-56 lg:h-64 bg-blue-400 opacity-5 rounded-full -translate-x-1/2 -translate-y-1/2 animate-float-fast pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/4 w-20 sm:w-32 md:w-40 h-20 sm:h-32 md:h-40 bg-white opacity-5 rounded-full animate-float-medium pointer-events-none" style={{ animationDelay: '1.5s' }}></div>
+      <div className="absolute bottom-1/3 right-1/4 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 bg-blue-300 opacity-5 rounded-full animate-float-slow pointer-events-none" style={{ animationDelay: '3s' }}></div>
 
-      <section className="relative z-10 pt-12 pb-16 px-8">
+      <section className="relative z-10 pt-8 sm:pt-10 md:pt-12 pb-12 sm:pb-14 md:pb-16 px-4 sm:px-6 md:px-8">
         <div className="max-w-7xl mx-auto">
 
-          {/* Section Header - "What We Offer" removed */}
-          <div className="text-center mb-14">
-            <h2 className="text-4xl font-bold text-white mb-4 leading-tight">Our Core Services</h2>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+          {/* Section Header - responsive typography */}
+          <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4 leading-tight">
+              Our Core Services
+            </h2>
+            <p className="text-gray-300 text-sm sm:text-base md:text-lg max-w-3xl mx-auto px-4 sm:px-6">
               A multidisciplinary company combining architectural design, web development, and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
             </p>
           </div>
 
-          {/* Service Cards */}
-          <div className="flex flex-col gap-8">
+          {/* Service Cards - responsive layout */}
+          <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <div
                 key={index}
-                className="rounded-2xl overflow-hidden flex flex-row border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 hover:shadow-2xl"
+                className="rounded-2xl overflow-hidden flex flex-col lg:flex-row border border-white border-opacity-20 hover:border-opacity-40 transition-all duration-300 hover:shadow-2xl"
                 style={{ background: 'rgba(255,255,255,0.04)', backdropFilter: 'blur(6px)' }}
               >
-                {/* Left: Image */}
-                <div className="w-2/5 flex-shrink-0 relative overflow-hidden" style={{ minHeight: '260px' }}>
+                {/* Left: Image - full width on mobile, 2/5 on desktop */}
+                <div className="w-full lg:w-2/5 flex-shrink-0 relative overflow-hidden" style={{ minHeight: '200px', maxHeight: '300px' }}>
                   <img
                     src={service.image}
                     alt={service.alt}
                     className="w-full h-full object-cover"
                   />
-                  {/* Fade edge into card */}
-                  <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#1a202c] to-transparent opacity-60"></div>
+                  {/* Fade edge - horizontal on mobile, vertical on desktop */}
+                  <div className="absolute inset-x-0 bottom-0 h-10 lg:inset-y-0 lg:right-0 lg:w-10 lg:h-full bg-gradient-to-t lg:bg-gradient-to-l from-[#1a202c] to-transparent opacity-60"></div>
                 </div>
 
-                {/* Vertical white divider line */}
-                <div className="w-px bg-white opacity-20 flex-shrink-0"></div>
+                {/* Vertical white divider line - hidden on mobile, visible on desktop */}
+                <div className="hidden lg:block w-px bg-white opacity-20 flex-shrink-0"></div>
+                
+                {/* Horizontal divider for mobile */}
+                <div className="lg:hidden w-full h-px bg-white opacity-20"></div>
 
-                {/* Right: Text */}
-                <div className="flex-1 p-10 flex flex-col justify-center">
+                {/* Right: Text - responsive padding */}
+                <div className="flex-1 p-5 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center">
                   {/* Subtitle pill */}
-                  <div className="inline-flex items-center gap-2 bg-white bg-opacity-10 rounded-full px-3 py-1 mb-5 w-fit">
-                    <div className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-white bg-opacity-10 rounded-full px-2.5 sm:px-3 py-0.5 sm:py-1 mb-3 sm:mb-4 md:mb-5 w-fit">
+                    <div className="w-1 sm:w-1.5 h-1 sm:h-1.5 bg-blue-400 rounded-full animate-pulse"></div>
                     <span className="text-blue-300 text-xs font-semibold tracking-wide uppercase">{service.subtitle}</span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white mb-4 leading-snug">
+                  <h3 className="text-xl sm:text-2xl md:text-2xl lg:text-2xl font-bold text-white mb-2 sm:mb-3 md:mb-4 leading-snug">
                     {service.title}
                   </h3>
-                  <p className="text-gray-300 leading-relaxed text-base">
+                  <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
                     {service.description}
                   </p>
                 </div>
