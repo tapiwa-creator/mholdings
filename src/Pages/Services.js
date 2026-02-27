@@ -6,7 +6,7 @@ const Services = () => {
       title: "Architectural Plan Drawing",
       subtitle: "Residential & Commercial Stands",
       description:
-        "From bespoke residential homes to large-scale commercial developments, MK Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
+        "From bespoke residential homes to large-scale commercial developments, LTSolutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
       image: "/archi.jpg",
       alt: "Architectural Plan Drawing",
       accent: "#2563EB",
@@ -26,7 +26,7 @@ const Services = () => {
       title: "Software Management & IT Consultancy",
       subtitle: "Strategic Technology Guidance",
       description:
-        "Navigate the complexities of modern technology with confidence. MK Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
+        "Navigate the complexities of modern technology with confidence. LTSolutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
       image: "/it.jpg",
       alt: "IT Consultancy",
       accent: "#D97706",

@@ -127,7 +127,7 @@ const Footer = () => {
           {/* Bottom bar */}
           <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '1.25rem', textAlign: 'center' }}>
             <p style={{ color: '#9CA3AF', fontSize: '13px', margin: 0 }}>
-              © 2026 MK Solutions. All rights reserved.
+              © 2026 LTSolutions. All rights reserved.
             </p>
           </div>
         </div>
@@ -156,11 +156,11 @@ const Footer = () => {
       <Modal isOpen={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
 
         {sectionTitle('Services')}
-        {bodyText('MK Solutions provides web development, architectural planning, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
+        {bodyText('LTSolutions provides web development, architectural planning, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
         {sectionTitle('Intellectual Property')}
-        {bodyText('All deliverables become the property of the client upon full payment. MK Solutions retains the right to display completed work in its portfolio unless otherwise agreed in writing.')}
+        {bodyText('All deliverables become the property of the client upon full payment. LTSolutions retains the right to display completed work in its portfolio unless otherwise agreed in writing.')}
         {sectionTitle('Limitation of Liability')}
-        {bodyText('MK Solutions shall not be liable for indirect or consequential losses arising from the use of our services beyond the value of the original agreement.')}
+        {bodyText('LTSolutions shall not be liable for indirect or consequential losses arising from the use of our services beyond the value of the original agreement.')}
         {sectionTitle('Contact')}
         {bodyText('Questions about these terms? Email us at informkholdings@gmail.com.')}
       </Modal>

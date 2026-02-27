@@ -68,7 +68,7 @@ const Landing = () => {
               </h1>
 
               <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '560px', margin: '0 auto 2rem' }}>
-                MK Solutions specializes in professional web development and architectural design services. Delivering innovative digital solutions and sustainable building designs that create lasting value for our clients across diverse sectors.
+                LTSolutions specializes in professional web development and architectural design services. Delivering innovative digital solutions and sustainable building designs that create lasting value for our clients across diverse sectors.
               </p>
 
               <Link
@@ -104,7 +104,7 @@ const Landing = () => {
             </div>
             <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
               <p style={{ color: '#4B5563', fontSize: 'clamp(14px, 2vw, 15px)', lineHeight: 1.85 }}>
-                At MK Solutions, we don't just build — we transform visions into reality. Whether you're looking to elevate your space with precision-crafted architectural plans or scale your business with cutting-edge web development, we bring the expertise, creativity, and dedication that set us apart. Our architectural solutions are thoughtfully designed to blend functionality with aesthetic excellence, delivering spaces that inspire and endure. On the digital front, our modern web development services are engineered for performance, user experience, and lasting impact — tailored to help your brand thrive in an ever-evolving landscape. With MK Solutions, you gain more than a service provider; you gain a committed partner driven by quality, innovation, and your success.
+                At LTSolutions, we don't just build — we transform visions into reality. Whether you're looking to elevate your space with precision-crafted architectural plans or scale your business with cutting-edge web development, we bring the expertise, creativity, and dedication that set us apart. Our architectural solutions are thoughtfully designed to blend functionality with aesthetic excellence, delivering spaces that inspire and endure. On the digital front, our modern web development services are engineered for performance, user experience, and lasting impact — tailored to help your brand thrive in an ever-evolving landscape. With LTSolutions, you gain more than a service provider; you gain a committed partner driven by quality, innovation, and your success.
               </p>
             </div>
           </div>
