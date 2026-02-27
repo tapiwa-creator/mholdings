@@ -21,9 +21,9 @@ const Contact = () => {
     setSubmitStatus({ type: '', message: '' });
 
     try {
-      const serviceID  = 'YOUR_SERVICE_ID';
-      const templateID = 'YOUR_TEMPLATE_ID';
-      const publicKey  = 'YOUR_PUBLIC_KEY';
+      const serviceID  = 'service_s1dqnqe';
+      const templateID = 'template_zwqjv3s';
+      const publicKey  = 'uzzWBFCynj8Q1XEJ-';
 
       const templateParams = {
         from_name:  `${formData.firstName} ${formData.lastName}`,
@@ -236,7 +236,7 @@ const Contact = () => {
                         <input
                           type="text" id="firstName" name="firstName"
                           value={formData.firstName} onChange={handleChange}
-                          placeholder="First Name" required
+                          placeholder="First" required
                           className="contact-input"
                           style={inputStyle}
                         />
@@ -246,7 +246,7 @@ const Contact = () => {
                         <input
                           type="text" id="lastName" name="lastName"
                           value={formData.lastName} onChange={handleChange}
-                          placeholder="Last Name" required
+                          placeholder="Last" required
                           className="contact-input"
                           style={inputStyle}
                         />
@@ -259,7 +259,7 @@ const Contact = () => {
                       <input
                         type="email" id="email" name="email"
                         value={formData.email} onChange={handleChange}
-                        placeholder="name@gmail.com" required
+                        placeholder="email@example.com" required
                         className="contact-input"
                         style={inputStyle}
                       />
