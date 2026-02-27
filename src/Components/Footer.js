@@ -96,13 +96,11 @@ const Footer = () => {
 
             {/* Brand */}
             <div style={{ gridColumn: 'span 2' }} className="footer-brand">
-              <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', textDecoration: 'none', marginBottom: '1rem' }}>
-                <div style={{ width: '42px', height: '42px', background: '#2563EB', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(37,99,235,0.25)' }}>
-                  <span style={{ color: 'white', fontWeight: 700, fontSize: '15px', letterSpacing: '-0.5px' }}>MK</span>
-                </div>
-                <div>
-                  <div style={{ fontSize: '16px', fontWeight: 600, color: '#1A1A2E' }}>MK Solutions</div>
-                  <div style={{ fontSize: '12px', color: '#9CA3AF' }}>Excellence in Business Solutions</div>
+              <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', textDecoration: 'none', marginBottom: '1rem' }}>
+                <img src="/logo.jpg" alt="LT Solutions" style={{ height: '62px', width: 'auto', display: 'block' }} />
+                <div style={{ marginLeft: '-10px' }}>
+                  <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>LT Solutions</div>
+                  <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business Solutions</div>
                 </div>
               </Link>
               <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.8, maxWidth: '280px', margin: 0 }}>

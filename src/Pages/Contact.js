@@ -187,7 +187,7 @@ const Contact = () => {
                     Contact Information
                   </h2>
                   <p style={{ color: '#6B7280', fontSize: 'clamp(13px, 1.8vw, 15px)', lineHeight: 1.75, marginBottom: '2rem' }}>
-                    Reach out to our team for inquiries about investment opportunities, partnerships, or general information.
+                   Connect with our team for inquiries related to IT solutions, architectural design services, partnerships, or investment opportunities.
                   </p>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>

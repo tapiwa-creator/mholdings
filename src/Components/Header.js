@@ -109,12 +109,10 @@ const Header = () => {
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}>
 
             {/* Logo */}
-            <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-              <div style={{ width: '42px', height: '42px', background: '#2563EB', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, boxShadow: '0 4px 12px rgba(37,99,235,0.25)' }}>
-                <span style={{ color: 'white', fontWeight: 700, fontSize: '15px', letterSpacing: '-0.5px' }}>MK</span>
-              </div>
-              <div>
-                <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>MK Solutions</div>
+            <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '2px', textDecoration: 'none' }}>
+              <img src="/logo.jpg" alt="LT Solutions" style={{ height: '62px', width: 'auto', display: 'block' }} />
+              <div style={{ marginLeft: '-10px' }}>
+                <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>LT Solutions</div>
                 <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business Solutions</div>
               </div>
             </Link>
