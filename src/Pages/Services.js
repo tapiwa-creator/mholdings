@@ -6,7 +6,7 @@ const Services = () => {
       title: "Architectural Plan Drawing",
       subtitle: "Residential & Commercial Stands",
       description:
-        "From bespoke residential homes to large-scale commercial developments, LTSolutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
+        "From bespoke residential homes to large-scale commercial developments, LT Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
       image: "/archi.jpg",
       alt: "Architectural Plan Drawing",
       accent: "#2563EB",
@@ -23,10 +23,30 @@ const Services = () => {
       accentBg: "#CCFBF1",
     },
     {
+      title: "Mobile App Development",
+      subtitle: "Mobile Applications",
+      description:
+        "Transform your ideas into powerful mobile experiences with LT Solutions. We craft native and cross-platform mobile applications that engage users and deliver exceptional performance. From intuitive UI/UX design to robust backend integration, our team builds feature-rich apps that help businesses connect with their customers on the go.",
+      image: "/phone.jpg",
+      alt: "Mobile App Development",
+      accent: "#8B5CF6",
+      accentBg: "#EDE9FE",
+    },
+    {
+      title: "Construction Project Development",
+      subtitle: "End-to-End Project Management",
+      description:
+        "Bring your construction visions to life with our comprehensive project development services. From initial feasibility studies and site analysis to contractor coordination and quality assurance, LT Solutions oversees every phase of your construction project. We ensure timely delivery, budget adherence, and the highest standards of craftsmanship.",
+      image: "/const.jpg",
+      alt: "Construction Project Development",
+      accent: "#B45309",
+      accentBg: "#FEEBC8",
+    },
+    {
       title: "Software Management & IT Consultancy",
       subtitle: "Strategic Technology Guidance",
       description:
-        "Navigate the complexities of modern technology with confidence. LTSolutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
+        "Navigate the complexities of modern technology with confidence. LT Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
       image: "/it.jpg",
       alt: "IT Consultancy",
       accent: "#D97706",
@@ -118,8 +138,6 @@ const Services = () => {
 
       <div style={{ minHeight: '100vh', background: '#F0F5FF', fontFamily: "'DM Sans', sans-serif", color: '#1A1A2E', overflowX: 'hidden', position: 'relative' }}>
 
-
-
         <section style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem 4rem' }}>
 
           {/* Section Header */}
@@ -128,7 +146,7 @@ const Services = () => {
               Our Core Services
             </h2>
             <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto' }}>
-              A multidisciplinary company combining architectural design, web development, and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
+              A multidisciplinary company combining architectural design, web and mobile development, construction project management, and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
             </p>
           </div>
 
