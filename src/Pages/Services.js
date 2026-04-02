@@ -20,7 +20,7 @@ const Services = () => {
       title: "Architectural Plan Drawing",
       subtitle: "Residential & Commercial Stands",
       description:
-        "From bespoke residential homes to large-scale commercial developments, LT Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
+        "From bespoke residential homes to large-scale commercial developments, ElevateLT Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
       image: "/archi.jpg",
       alt: "Architectural Plan Drawing",
       accent: "#2563EB",
@@ -40,7 +40,7 @@ const Services = () => {
       title: "Construction Project Development",
       subtitle: "End-to-End Project Management",
       description:
-        "Bring your construction visions to life with our comprehensive project development services. From initial feasibility studies and site analysis to contractor coordination and quality assurance, LT Solutions oversees every phase of your construction project. We ensure timely delivery, budget adherence, and the highest standards of craftsmanship.",
+        "Bring your construction visions to life with our comprehensive project development services. From initial feasibility studies and site analysis to contractor coordination and quality assurance, ElevateLT Solutions oversees every phase of your construction project. We ensure timely delivery, budget adherence, and the highest standards of craftsmanship.",
       image: "/const.jpg",
       alt: "Construction Project Development",
       accent: "#B45309",
@@ -50,7 +50,7 @@ const Services = () => {
       title: "Software Management & IT Consultancy",
       subtitle: "Strategic Technology Guidance",
       description:
-        "Navigate the complexities of modern technology with confidence. LT Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
+        "Navigate the complexities of modern technology with confidence. ElevateLT Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
       image: "/it.jpg",
       alt: "IT Consultancy",
       accent: "#D97706",

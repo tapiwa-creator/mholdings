@@ -19,7 +19,7 @@ const About = () => {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 md:mb-12">
-            LT Solutions operates across IT services, software development, architectural planning and design & builds.
+            ElevateLT Solutions operates across IT services, software development, architectural planning and design & builds.
           </p>
 
           {/* Features List */}
