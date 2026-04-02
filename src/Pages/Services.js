@@ -151,7 +151,7 @@ const Services = () => {
               Our Core Services
             </h2>
             <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto' }}>
-              A multidisciplinary company combining architectural design, web and mobile development, construction project management, and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
+              A multidisciplinary company combining architectural design, web development, construction project management and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
             </p>
           </div>
 

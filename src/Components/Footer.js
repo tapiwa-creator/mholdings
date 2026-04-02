@@ -113,7 +113,6 @@ const Footer = () => {
               <p className="footer-col-title">Services</p>
               <Link to="/services" className="footer-link">Architecture</Link>
               <Link to="/services" className="footer-link">Web Development</Link>
-              <Link to="/services" className="footer-link">Mobile App Development</Link>
               <Link to="/services" className="footer-link">Construction Project Development</Link>
               <Link to="/services" className="footer-link">IT Consultancy</Link>
             </div>
@@ -158,7 +157,7 @@ const Footer = () => {
       <Modal isOpen={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
 
         {sectionTitle('Services')}
-        {bodyText('LT Solutions provides web development, architectural planning, mobile app development, construction project management, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
+        {bodyText('LT Solutions provides web development, architectural planning, construction project management, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
         {sectionTitle('Intellectual Property')}
         {bodyText('All deliverables become the property of the client upon full payment. LT Solutions retains the right to display completed work in its portfolio unless otherwise agreed in writing.')}
         {sectionTitle('Limitation of Liability')}
