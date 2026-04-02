@@ -52,14 +52,12 @@ const Header = () => {
           font-weight: 600;
           text-decoration: none;
           font-family: 'DM Sans', sans-serif;
-          transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-          box-shadow: 0 4px 12px rgba(37,99,235,0.25);
+          transition: background 0.2s, transform 0.2s;
         }
 
         .contact-btn:hover {
           background: #1d4ed8;
           transform: translateY(-1px);
-          box-shadow: 0 6px 16px rgba(37,99,235,0.35);
         }
 
         .contact-btn::after {

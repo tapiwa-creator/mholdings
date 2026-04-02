@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+// ── Scroll to top on mount ────────────────────────────────────────────────────
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+};
 
 const Services = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   const services = [
     {
       title: "Architectural Plan Drawing",
@@ -21,16 +35,6 @@ const Services = () => {
       alt: "Web Development",
       accent: "#0D9488",
       accentBg: "#CCFBF1",
-    },
-    {
-      title: "Mobile App Development",
-      subtitle: "Mobile Applications",
-      description:
-        "Transform your ideas into powerful mobile experiences with LT Solutions. We craft native and cross-platform mobile applications that engage users and deliver exceptional performance. From intuitive UI/UX design to robust backend integration, our team builds feature-rich apps that help businesses connect with their customers on the go.",
-      image: "/phone.jpg",
-      alt: "Mobile App Development",
-      accent: "#8B5CF6",
-      accentBg: "#EDE9FE",
     },
     {
       title: "Construction Project Development",
@@ -56,6 +60,7 @@ const Services = () => {
 
   return (
     <>
+      <ScrollToTop />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 

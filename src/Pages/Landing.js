@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
+// ── Scroll to top on mount ────────────────────────────────────────────────────
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+};
 
 // ── Animated counter ──────────────────────────────────────────────────────────
 const Counter = ({ target, suffix = '', label, delay = 0 }) => {
@@ -41,8 +50,13 @@ const Counter = ({ target, suffix = '', label, delay = 0 }) => {
 
 // ── Landing Page ──────────────────────────────────────────────────────────────
 const Landing = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <>
+      <ScrollToTop />
       <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
       <div style={{ minHeight: '100vh', background: '#F0F5FF', fontFamily: "'DM Sans', sans-serif", color: '#1A1A2E', overflowX: 'hidden', position: 'relative' }}>
@@ -57,12 +71,6 @@ const Landing = () => {
           <div style={{ background: 'white', borderRadius: '20px', border: '1px solid #E5E7EB', boxShadow: '0 8px 32px rgba(0,0,0,0.07)', padding: 'clamp(2rem, 5vw, 4rem) clamp(1.5rem, 5vw, 3rem)', textAlign: 'center' }}>
             <div style={{ maxWidth: '700px', margin: '0 auto' }}>
 
-              {/* Badge */}
-              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: '#DBEAFE', borderRadius: '100px', padding: '6px 16px', marginBottom: '1.5rem' }}>
-                <span style={{ width: '8px', height: '8px', background: '#2563EB', borderRadius: '50%', display: 'inline-block', animation: 'pulse 2s infinite' }} />
-                <span style={{ color: '#2563EB', fontSize: '13px', fontWeight: 600 }}>One-stop software and architecture hub</span>
-              </div>
-
               <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)', fontWeight: 700, lineHeight: 1.15, color: '#1A1A2E', marginBottom: '1.25rem' }}>
                 Delivering <em style={{ color: '#2563EB', fontStyle: 'italic' }}>smart solutions</em> in<br />software development and architecture
               </h1>
@@ -73,7 +81,7 @@ const Landing = () => {
 
               <Link
                 to="/services"
-                style={{ display: 'inline-block', background: '#2563EB', color: 'white', padding: '13px 28px', borderRadius: '10px', fontFamily: "'DM Sans', sans-serif", fontSize: '15px', fontWeight: 600, textDecoration: 'none', boxShadow: '0 4px 14px rgba(37,99,235,0.35)', transition: 'background 0.2s, transform 0.2s' }}
+                style={{ display: 'inline-block', background: '#2563EB', color: 'white', padding: '13px 28px', borderRadius: '10px', fontFamily: "'DM Sans', sans-serif", fontSize: '15px', fontWeight: 600, textDecoration: 'none', transition: 'background 0.2s, transform 0.2s' }}
                 onMouseEnter={e => { e.target.style.background = '#1d4ed8'; e.target.style.transform = 'translateY(-2px)'; }}
                 onMouseLeave={e => { e.target.style.background = '#2563EB'; e.target.style.transform = 'translateY(0)'; }}
               >
@@ -176,28 +184,28 @@ const Landing = () => {
             <div className="team-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1.5rem', padding: 'clamp(1.25rem, 3vw, 2rem)' }}>
               {[
                 {
-                  img: '/2.jpg',
-                  name: 'Comfort T Mkunyadze',
-                  role: 'Co-Founder',
+                  img: '/1.jpg',
+                  name: 'Lennox B Chapata',
+                  role: 'Lead Architect',
                   roleColor: '#2563EB',
                   roleBg: '#DBEAFE',
-                  desc: 'Driven by vision and innovation, turning ambitious ideas into impactful solutions across IT, architecture and more.'
+                  desc: 'Oversees the design, planning, and execution of building projects from concept to completion. Guides architectural teams, ensure creative and functional design solutions, and collaborate with clients and contractors to deliver aesthetically compelling, safe and sustainable structures.'
                 },
                 {
-                  img: '/1.jpg',
-                  name: 'Leenox B Chapata',
-                  role: 'Operations Manager',
+                  img: '/2.jpg',
+                  name: 'Comfort T Mkunyadze',
+                  role: 'Tech Resource Associate',
                   roleColor: '#0D9488',
                   roleBg: '#CCFBF1',
-                  desc: 'A detail driven leader with deep expertise in architecture. Blending on-site know-how, design insight and team coordination to turn blueprints into real buildings.'
+                  desc: 'Supports the technical teams by identifying and managing the right tools, technologies and resources to drive project success. Collaborate closely with developers and stakeholders to streamline workflows, solve technical challenges, and ensure efficient delivery of high-quality solutions.'
                 },
                 {
                   img: '/3.jpg',
-                  name: 'Takudzwa Phuwaphuwa',
-                  role: 'Sustainability Leader',
+                  name: 'Mbonge R',
+                  role: 'Technical Lead',
                   roleColor: '#D97706',
                   roleBg: '#FEF3C7',
-                  desc: 'A forward thinking strategist who drives eco-friendly practices across the organization, making sure sustainability aligns with company growth and delivers measurable ROI.'
+                  desc: 'A technical leader with a strong ability to combine hands-on technical expertise and team guidance to deliver effective solutions. Specializing in overseeing development processes, making key architectural decisions, and supporting team members to achieve project goals efficiently and with high quality results.'
                 },
               ].map((member, i) => (
                 <div

@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 
+// ── Scroll to top on mount ────────────────────────────────────────────────────
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [pathname]);
+  return null;
+};
+
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -100,6 +114,7 @@ const Contact = () => {
 
   return (
     <>
+      <ScrollToTop />
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -283,7 +298,7 @@ const Contact = () => {
                       type="submit"
                       disabled={isSubmitting}
                       className="submit-btn"
-                      style={{ width: '100%', background: '#2563EB', color: 'white', padding: '13px 24px', borderRadius: '10px', border: 'none', fontFamily: "'DM Sans', sans-serif", fontSize: '15px', fontWeight: 600, cursor: 'pointer', boxShadow: '0 4px 14px rgba(37,99,235,0.35)', transition: 'background 0.2s, transform 0.2s, box-shadow 0.2s' }}
+                      style={{ width: '100%', background: '#2563EB', color: 'white', padding: '13px 24px', borderRadius: '10px', border: 'none', fontFamily: "'DM Sans', sans-serif", fontSize: '15px', fontWeight: 600, cursor: 'pointer', transition: 'background 0.2s, transform 0.2s, box-shadow 0.2s' }}
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </button>
