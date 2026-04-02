@@ -108,10 +108,10 @@ const Header = () => {
 
             {/* Logo */}
             <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '2px', textDecoration: 'none' }}>
-              <img src="/logo.jpg" alt="ElevateLT Solutions" style={{ height: '62px', width: 'auto', display: 'block' }} />
+              <img src="/logo.jpg" alt="ElevateLT " style={{ height: '62px', width: 'auto', display: 'block' }} />
               <div style={{ marginLeft: '-10px' }}>
-                <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>ElevateLT Solutions</div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business Solutions</div>
+                <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>ElevateLT </div>
+                <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business </div>
               </div>
             </Link>
 

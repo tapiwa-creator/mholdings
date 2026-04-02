@@ -72,11 +72,11 @@ const Landing = () => {
             <div style={{ maxWidth: '700px', margin: '0 auto' }}>
 
               <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 'clamp(1.8rem, 4.5vw, 3.2rem)', fontWeight: 700, lineHeight: 1.15, color: '#1A1A2E', marginBottom: '1.25rem' }}>
-                Delivering <em style={{ color: '#2563EB', fontStyle: 'italic' }}>smart solutions</em> in<br />software development and architecture
+                Delivering <em style={{ color: '#2563EB', fontStyle: 'italic' }}>smart </em> in<br />software development and architecture
               </h1>
 
               <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, marginBottom: '2rem', maxWidth: '560px', margin: '0 auto 2rem' }}>
-                ElevateLT Solutions specializes in professional web development and architectural design services. Delivering innovative digital solutions and sustainable building designs that create lasting value for our clients across diverse sectors.
+                ElevateLT  specializes in professional web development and architectural design services. Delivering innovative digital  and sustainable building designs that create lasting value for our clients across diverse sectors.
               </p>
 
               <Link
@@ -112,7 +112,7 @@ const Landing = () => {
             </div>
             <div style={{ padding: 'clamp(1.5rem, 4vw, 2.5rem)' }}>
               <p style={{ color: '#4B5563', fontSize: 'clamp(14px, 2vw, 15px)', lineHeight: 1.85 }}>
-                At ElevateLT Solutions, we don't just build — we transform visions into reality. Whether you're looking to elevate your space with precision-crafted architectural plans or scale your business with cutting-edge web development, we bring the expertise, creativity, and dedication that set us apart. Our architectural solutions are thoughtfully designed to blend functionality with aesthetic excellence, delivering spaces that inspire and endure. On the digital front, our modern web development services are engineered for performance, user experience, and lasting impact — tailored to help your brand thrive in an ever-evolving landscape. With ElevateLT Solutions, you gain more than a service provider; you gain a committed partner driven by quality, innovation, and your success.
+                At ElevateLT , we don't just build — we transform visions into reality. Whether you're looking to elevate your space with precision-crafted architectural plans or scale your business with cutting-edge web development, we bring the expertise, creativity, and dedication that set us apart. Our architectural  are thoughtfully designed to blend functionality with aesthetic excellence, delivering spaces that inspire and endure. On the digital front, our modern web development services are engineered for performance, user experience, and lasting impact — tailored to help your brand thrive in an ever-evolving landscape. With ElevateLT , you gain more than a service provider; you gain a committed partner driven by quality, innovation, and your success.
               </p>
             </div>
           </div>
@@ -122,7 +122,7 @@ const Landing = () => {
             <div style={{ padding: 'clamp(1.5rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3rem) 1.5rem', textAlign: 'center', borderBottom: '1px solid #E5E7EB' }}>
               <h2 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 'clamp(1.5rem, 3.5vw, 2.5rem)', fontWeight: 700, color: '#1A1A2E', marginBottom: '0.75rem' }}>Our Vision</h2>
               <p style={{ color: '#4B5563', fontSize: 'clamp(13px, 2vw, 15px)', lineHeight: 1.75, maxWidth: '600px', margin: '0 auto' }}>
-                To deliver innovative technology and architectural solutions, solving problems with client satisfaction front and centre
+                To deliver innovative technology and architectural , solving problems with client satisfaction front and centre
               </p>
             </div>
 
@@ -130,7 +130,7 @@ const Landing = () => {
               {[
                 {
                   title: 'Smart Blueprint',
-                  desc: 'Lead digital transformation in construction, delivering future-ready, intelligent solutions for all.',
+                  desc: 'Lead digital transformation in construction, delivering future-ready, intelligent  for all.',
                   bg: '#DBEAFE', iconColor: '#2563EB',
                   icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 },
@@ -189,7 +189,7 @@ const Landing = () => {
                   role: 'Lead Architect',
                   roleColor: '#2563EB',
                   roleBg: '#DBEAFE',
-                  desc: 'Oversees the design, planning, and execution of building projects from concept to completion. Guides architectural teams, ensure creative and functional design solutions, and collaborate with clients and contractors to deliver aesthetically compelling, safe and sustainable structures.'
+                  desc: 'Oversees the design, planning, and execution of building projects from concept to completion. Guides architectural teams, ensure creative and functional design , and collaborate with clients and contractors to deliver aesthetically compelling, safe and sustainable structures.'
                 },
                 {
                   img: '/2.jpg',
@@ -197,7 +197,7 @@ const Landing = () => {
                   role: 'Tech Resource Associate',
                   roleColor: '#0D9488',
                   roleBg: '#CCFBF1',
-                  desc: 'Supports the technical teams by identifying and managing the right tools, technologies and resources to drive project success. Collaborate closely with developers and stakeholders to streamline workflows, solve technical challenges, and ensure efficient delivery of high-quality solutions.'
+                  desc: 'Supports the technical teams by identifying and managing the right tools, technologies and resources to drive project success. Collaborate closely with developers and stakeholders to streamline workflows, solve technical challenges, and ensure efficient delivery of high-quality .'
                 },
                 {
                   img: '/3.jpg',
@@ -205,7 +205,7 @@ const Landing = () => {
                   role: 'Technical Lead',
                   roleColor: '#D97706',
                   roleBg: '#FEF3C7',
-                  desc: 'A technical leader with a strong ability to combine hands-on technical expertise and team guidance to deliver effective solutions. Specializing in overseeing development processes, making key architectural decisions, and supporting team members to achieve project goals efficiently and with high quality results.'
+                  desc: 'A technical leader with a strong ability to combine hands-on technical expertise and team guidance to deliver effective . Specializing in overseeing development processes, making key architectural decisions, and supporting team members to achieve project goals efficiently and with high quality results.'
                 },
               ].map((member, i) => (
                 <div

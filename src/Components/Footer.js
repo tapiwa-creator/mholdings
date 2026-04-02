@@ -97,14 +97,14 @@ const Footer = () => {
             {/* Brand */}
             <div style={{ gridColumn: 'span 2' }} className="footer-brand">
               <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '2px', textDecoration: 'none', marginBottom: '1rem' }}>
-                <img src="/logo.jpg" alt="ElevateLT Solutions" style={{ height: '62px', width: 'auto', display: 'block' }} />
+                <img src="/logo.jpg" alt="ElevateLT " style={{ height: '62px', width: 'auto', display: 'block' }} />
                 <div style={{ marginLeft: '-10px' }}>
-                  <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>ElevateLT Solutions</div>
-                  <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business Solutions</div>
+                  <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>ElevateLT </div>
+                  <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business </div>
                 </div>
               </Link>
               <p style={{ color: '#6B7280', fontSize: '14px', lineHeight: 1.8, maxWidth: '280px', margin: 0 }}>
-                Building sustainable value through strategic solutions across software, architecture and IT.
+                Building sustainable value through strategic  across software, architecture and IT.
               </p>
             </div>
 
@@ -128,7 +128,7 @@ const Footer = () => {
           {/* Bottom bar */}
           <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '1.25rem', textAlign: 'center' }}>
             <p style={{ color: '#9CA3AF', fontSize: '13px', margin: 0 }}>
-              © 2026 ElevateLT Solutions. All rights reserved.
+              © 2026 ElevateLT . All rights reserved.
             </p>
           </div>
         </div>
@@ -157,11 +157,11 @@ const Footer = () => {
       <Modal isOpen={termsOpen} onClose={() => setTermsOpen(false)} title="Terms of Service">
 
         {sectionTitle('Services')}
-        {bodyText('ElevateLT Solutions provides web development, architectural planning, construction project management, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
+        {bodyText('ElevateLT  provides web development, architectural planning, construction project management, and IT consultancy services. All work is delivered under agreed project terms outlined in individual client proposals.')}
         {sectionTitle('Intellectual Property')}
-        {bodyText('All deliverables become the property of the client upon full payment. ElevateLT Solutions retains the right to display completed work in its portfolio unless otherwise agreed in writing.')}
+        {bodyText('All deliverables become the property of the client upon full payment. ElevateLT  retains the right to display completed work in its portfolio unless otherwise agreed in writing.')}
         {sectionTitle('Limitation of Liability')}
-        {bodyText('ElevateLT Solutions shall not be liable for indirect or consequential losses arising from the use of our services beyond the value of the original agreement.')}
+        {bodyText('ElevateLT  shall not be liable for indirect or consequential losses arising from the use of our services beyond the value of the original agreement.')}
         {sectionTitle('Contact')}
         {bodyText('Questions about these terms? Email us at informkholdings@gmail.com.')}
       </Modal>

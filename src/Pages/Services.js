@@ -20,7 +20,7 @@ const Services = () => {
       title: "Architectural Plan Drawing",
       subtitle: "Residential & Commercial Stands",
       description:
-        "From bespoke residential homes to large-scale commercial developments, ElevateLT Solutions delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
+        "From bespoke residential homes to large-scale commercial developments, ElevateLT  delivers precision-crafted architectural plans tailored to your vision. Our experienced team produces detailed drawings that meet regulatory standards while maximising space, functionality, and aesthetic appeal — turning every stand into a place worth building.",
       image: "/archi.jpg",
       alt: "Architectural Plan Drawing",
       accent: "#2563EB",
@@ -30,7 +30,7 @@ const Services = () => {
       title: "Web Development",
       subtitle: "Modern Digital Experiences",
       description:
-        "We design and build high-performance websites and web applications that captivate users and drive results. From sleek corporate platforms to dynamic e-commerce solutions, our development team combines clean code with compelling design — ensuring your digital presence is fast, responsive, and built to scale with your ambitions.",
+        "We design and build high-performance websites and web applications that captivate users and drive results. From sleek corporate platforms to dynamic e-commerce , our development team combines clean code with compelling design — ensuring your digital presence is fast, responsive, and built to scale with your ambitions.",
       image: "/web.jpg",
       alt: "Web Development",
       accent: "#0D9488",
@@ -40,7 +40,7 @@ const Services = () => {
       title: "Construction Project Development",
       subtitle: "End-to-End Project Management",
       description:
-        "Bring your construction visions to life with our comprehensive project development services. From initial feasibility studies and site analysis to contractor coordination and quality assurance, ElevateLT Solutions oversees every phase of your construction project. We ensure timely delivery, budget adherence, and the highest standards of craftsmanship.",
+        "Bring your construction visions to life with our comprehensive project development services. From initial feasibility studies and site analysis to contractor coordination and quality assurance, ElevateLT  oversees every phase of your construction project. We ensure timely delivery, budget adherence, and the highest standards of craftsmanship.",
       image: "/const.jpg",
       alt: "Construction Project Development",
       accent: "#B45309",
@@ -50,7 +50,7 @@ const Services = () => {
       title: "Software Management & IT Consultancy",
       subtitle: "Strategic Technology Guidance",
       description:
-        "Navigate the complexities of modern technology with confidence. ElevateLT Solutions provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
+        "Navigate the complexities of modern technology with confidence. ElevateLT  provides expert software management and IT consultancy services — from system architecture and infrastructure planning to software implementation and ongoing support. We align technology strategy with business goals to keep your operations efficient, secure, and future-ready.",
       image: "/it.jpg",
       alt: "IT Consultancy",
       accent: "#D97706",
@@ -151,7 +151,7 @@ const Services = () => {
               Our Core Services
             </h2>
             <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, maxWidth: '620px', margin: '0 auto' }}>
-              A multidisciplinary company combining architectural design, web development, construction project management and IT consultancy to deliver smart, functional, and beautifully crafted solutions.
+              A multidisciplinary company combining architectural design, web development, construction project management and IT consultancy to deliver smart, functional, and beautifully crafted .
             </p>
           </div>
 

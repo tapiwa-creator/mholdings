@@ -19,7 +19,7 @@ const About = () => {
 
           {/* Description */}
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-8 md:mb-12">
-            ElevateLT Solutions operates across IT services, software development, architectural planning and design & builds.
+            ElevateLT  operates across IT services, software development, architectural planning and design & builds.
           </p>
 
           {/* Features List */}
@@ -76,7 +76,7 @@ const About = () => {
                 </div>
               </div>
               <p className="text-base md:text-lg text-gray-600 md:pt-1 flex-1">
-                Focused on sustainable, efficient, and future-ready solutions.
+                Focused on sustainable, efficient, and future-ready .
               </p>
             </div>
           </div>

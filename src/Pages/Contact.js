@@ -184,7 +184,7 @@ const Contact = () => {
               Get in Touch
             </h1>
             <p style={{ color: '#6B7280', fontSize: 'clamp(14px, 2vw, 16px)', lineHeight: 1.8, maxWidth: '580px', margin: '0 auto' }}>
-              Ready to bring your ideas to life? Contact us to discuss how our software, architectural and design solutions can support your project.
+              Ready to bring your ideas to life? Contact us to discuss how our software, architectural and design  can support your project.
             </p>
           </div>
 
@@ -202,7 +202,7 @@ const Contact = () => {
                     Contact Information
                   </h2>
                   <p style={{ color: '#6B7280', fontSize: 'clamp(13px, 1.8vw, 15px)', lineHeight: 1.75, marginBottom: '2rem' }}>
-                   Connect with our team for inquiries related to IT solutions, architectural design services, partnerships, or investment opportunities.
+                   Connect with our team for inquiries related to IT , architectural design services, partnerships, or investment opportunities.
                   </p>
 
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
