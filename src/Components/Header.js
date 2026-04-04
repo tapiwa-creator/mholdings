@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -14,59 +13,43 @@ const Header = () => {
 
         .nav-link {
           position: relative;
-          color: #6B7280;
+          color: rgba(255,255,255,0.6);
           font-size: 15px;
           font-weight: 500;
           text-decoration: none;
           padding: 6px 2px;
           transition: color 0.2s;
           font-family: 'DM Sans', sans-serif;
+          letter-spacing: 0.02em;
         }
-
         .nav-link::after {
           content: '';
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 0;
-          height: 2px;
-          background: #2563EB;
-          border-radius: 2px;
+          position: absolute; bottom: 0; left: 0;
+          width: 0; height: 2px;
+          background: #c9a84c; border-radius: 2px;
           transition: width 0.25s ease;
         }
-
-        .nav-link:hover {
-          color: #2563EB;
-        }
-
-        .nav-link:hover::after {
-          width: 100%;
-        }
+        .nav-link:hover { color: #c9a84c; }
+        .nav-link:hover::after { width: 100%; }
 
         .contact-btn {
-          background: #2563EB;
-          color: white !important;
-          padding: 8px 20px;
+          background: linear-gradient(135deg, #c9a84c, #e8c97a);
+          color: #0a0f1e !important;
+          padding: 9px 22px;
           border-radius: 8px;
           font-size: 15px;
           font-weight: 600;
           text-decoration: none;
           font-family: 'DM Sans', sans-serif;
-          transition: background 0.2s, transform 0.2s;
+          transition: transform 0.2s, opacity 0.2s;
+          letter-spacing: 0.02em;
         }
-
-        .contact-btn:hover {
-          background: #1d4ed8;
-          transform: translateY(-1px);
-        }
-
-        .contact-btn::after {
-          display: none;
-        }
+        .contact-btn:hover { transform: translateY(-1px); opacity: 0.92; }
+        .contact-btn::after { display: none !important; }
 
         .mobile-link {
           display: block;
-          color: #4B5563;
+          color: rgba(255,255,255,0.65);
           font-size: 15px;
           font-weight: 500;
           text-decoration: none;
@@ -75,11 +58,7 @@ const Header = () => {
           transition: background 0.15s, color 0.15s;
           font-family: 'DM Sans', sans-serif;
         }
-
-        .mobile-link:hover {
-          background: #EFF6FF;
-          color: #2563EB;
-        }
+        .mobile-link:hover { background: rgba(201,168,76,0.1); color: #c9a84c; }
 
         .mobile-menu {
           overflow: hidden;
@@ -87,37 +66,44 @@ const Header = () => {
         }
 
         .hamburger-btn {
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 8px;
-          border-radius: 8px;
-          color: #6B7280;
+          background: none; border: none; cursor: pointer;
+          padding: 8px; border-radius: 8px;
+          color: rgba(255,255,255,0.6);
           transition: background 0.15s, color 0.15s;
         }
+        .hamburger-btn:hover { background: rgba(201,168,76,0.1); color: #c9a84c; }
 
-        .hamburger-btn:hover {
-          background: #EFF6FF;
-          color: #2563EB;
+        .desktop-nav { display: flex; }
+        .mobile-only  { display: none; }
+
+        @media (max-width: 767px) {
+          .desktop-nav { display: none !important; }
+          .mobile-only  { display: block; }
         }
       `}</style>
 
-      <header style={{ background: 'white', borderBottom: '1px solid #E5E7EB', boxShadow: '0 1px 12px rgba(0,0,0,0.06)', position: 'sticky', top: 0, zIndex: 50, fontFamily: "'DM Sans', sans-serif" }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem' }}>
+      <header style={{
+        background: 'rgba(10,15,30,0.92)',
+        backdropFilter: 'blur(16px)',
+        borderBottom: '1px solid rgba(201,168,76,0.15)',
+        position: 'sticky', top: 0, zIndex: 50,
+        fontFamily: "'DM Sans', sans-serif"
+      }}>
+        <div style={{ width: '100%', boxSizing: 'border-box', margin: '0 auto', padding: '0 clamp(1.5rem, 5vw, 5rem)' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '70px' }}>
 
             {/* Logo */}
             <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '2px', textDecoration: 'none' }}>
-              <img src="/logo.jpg" alt="ElevateLT " style={{ height: '62px', width: 'auto', display: 'block' }} />
+              <img src="/logo.jpg" alt="ElevateLT" style={{ height: '62px', width: 'auto', display: 'block' }} />
               <div style={{ marginLeft: '-10px' }}>
-                <div style={{ fontSize: '17px', fontWeight: 600, color: '#1A1A2E', lineHeight: 1.2 }}>ElevateLT </div>
-                <div style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 400 }}>Excellence in Business </div>
+                <div style={{ fontSize: '17px', fontWeight: 600, color: '#ffffff', lineHeight: 1.2 }}>ElevateLT</div>
+                <div style={{ fontSize: '12px', color: '#c9a84c', fontWeight: 400, letterSpacing: '0.05em' }}>Excellence in Business</div>
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
-              <Link to="/"        className="nav-link">Home</Link>
+              <Link to="/"         className="nav-link">Home</Link>
               <Link to="/services" className="nav-link">Services</Link>
               <Link to="/contact"  className="nav-link contact-btn">Contact</Link>
             </nav>
@@ -134,23 +120,13 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div className="mobile-menu" style={{ maxHeight: isMenuOpen ? '300px' : '0', opacity: isMenuOpen ? 1 : 0 }}>
-            <nav style={{ padding: '0.5rem 0 1rem', borderTop: '1px solid #E5E7EB' }}>
+            <nav style={{ padding: '0.5rem 0 1rem', borderTop: '1px solid rgba(201,168,76,0.12)' }}>
               <Link to="/"         className="mobile-link" onClick={closeMenu}>Home</Link>
               <Link to="/services" className="mobile-link" onClick={closeMenu}>Services</Link>
               <Link to="/contact"  className="mobile-link" onClick={closeMenu}>Contact</Link>
             </nav>
           </div>
         </div>
-
-        <style>{`
-          .desktop-nav { display: flex; }
-          .mobile-only  { display: none; }
-
-          @media (max-width: 767px) {
-            .desktop-nav { display: none !important; }
-            .mobile-only  { display: block; }
-          }
-        `}</style>
       </header>
     </>
   );
