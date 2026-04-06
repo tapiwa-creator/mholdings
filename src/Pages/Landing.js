@@ -100,7 +100,7 @@ const Landing = () => {
       <div style={{ minHeight: '100vh', background: '#0a0f1e', fontFamily: "'DM Sans', sans-serif", color: '#ffffff', overflowX: 'hidden' }}>
 
         {/* ── HERO ── */}
-        <div style={{ position:'relative', minHeight:'100vh', display:'flex', alignItems:'center', justifyContent:'center', padding:'clamp(10px,5vw,60px) clamp(1.5rem,5vw,5rem) 80px', overflow:'hidden' }}>
+        <div style={{ position:'relative', display:'flex', alignItems:'center', justifyContent:'center', paddingTop: '150px', paddingBottom: '100px', paddingLeft: 'clamp(1.5rem,5vw,5rem)', paddingRight: 'clamp(1.5rem,5vw,5rem)', overflow:'hidden' }}>
 
           <div style={{ position: 'relative', zIndex: 2, maxWidth: '800px', textAlign: 'center', animation: 'fadeUp 0.9s ease both' }}>
             <h1 style={{ fontFamily: "'DM Serif Display', serif", fontSize: 'clamp(2.4rem,5.5vw,4.2rem)', fontWeight: 700, lineHeight: 1.15, color: '#ffffff', marginBottom: '1.25rem' }}>
@@ -189,7 +189,6 @@ const Landing = () => {
                 { num: '04', title: 'Next-Gen Software', desc: 'Deliver cutting-edge software upgrades that digitise workflows and connect users worldwide.', bg: 'rgba(124,58,237,0.12)', iconColor: '#a78bfa', icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> },
               ].map((card, i) => (
                 <div key={i} className="landing-vision-card">
-                  <span style={{ position: 'absolute', top: '18px', right: '18px', fontSize: '11px', color: 'rgba(255,255,255,0.1)', letterSpacing: '0.1em' }}>{card.num}</span>
                   <div style={{ width: '48px', height: '48px', background: card.bg, borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1rem' }}>
                     <svg style={{ width: '24px', height: '24px' }} fill="none" stroke={card.iconColor} viewBox="0 0 24 24">{card.icon}</svg>
                   </div>
