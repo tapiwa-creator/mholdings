@@ -13,7 +13,7 @@ const Header = () => {
 
         .nav-link {
           position: relative;
-          color: rgba(255,255,255,0.6);
+          color: rgba(10,15,30,0.6);
           font-size: 15px;
           font-weight: 500;
           text-decoration: none;
@@ -49,7 +49,7 @@ const Header = () => {
 
         .mobile-link {
           display: block;
-          color: rgba(255,255,255,0.65);
+          color: rgba(10,15,30,0.6);
           font-size: 15px;
           font-weight: 500;
           text-decoration: none;
@@ -68,7 +68,7 @@ const Header = () => {
         .hamburger-btn {
           background: none; border: none; cursor: pointer;
           padding: 8px; border-radius: 8px;
-          color: rgba(255,255,255,0.6);
+          color: rgba(10,15,30,0.6);
           transition: background 0.15s, color 0.15s;
         }
         .hamburger-btn:hover { background: rgba(201,168,76,0.1); color: #c9a84c; }
@@ -83,9 +83,9 @@ const Header = () => {
       `}</style>
 
       <header style={{
-        background: 'rgba(10,15,30,0.92)',
+        background: 'rgba(226,221,212,0.96)',
         backdropFilter: 'blur(16px)',
-        borderBottom: '1px solid rgba(201,168,76,0.15)',
+        borderBottom: '1px solid rgba(201,168,76,0.22)',
         position: 'sticky', top: 0, zIndex: 50,
         fontFamily: "'DM Sans', sans-serif"
       }}>
@@ -96,16 +96,17 @@ const Header = () => {
             <Link to="/" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '2px', textDecoration: 'none' }}>
               <img src="/logo.jpg" alt="ElevateLT" style={{ height: '62px', width: 'auto', display: 'block' }} />
               <div style={{ marginLeft: '-10px' }}>
-                <div style={{ fontSize: '17px', fontWeight: 600, color: '#ffffff', lineHeight: 1.2 }}>ElevateLT</div>
+                <div style={{ fontSize: '17px', fontWeight: 600, color: '#0a0f1e', lineHeight: 1.2 }}>ElevateLT</div>
                 <div style={{ fontSize: '12px', color: '#c9a84c', fontWeight: 400, letterSpacing: '0.05em' }}>Excellence in Business</div>
               </div>
             </Link>
 
             {/* Desktop Nav */}
             <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
-              <Link to="/"         className="nav-link">Home</Link>
+              <Link to="/" className="nav-link">Home</Link>
               <Link to="/services" className="nav-link">Services</Link>
-              <Link to="/contact"  className="nav-link contact-btn">Contact</Link>
+              <Link to="/project" className="nav-link">Featured Projects</Link>
+              <Link to="/contact" className="nav-link contact-btn">Contact</Link>
             </nav>
 
             {/* Mobile hamburger */}
@@ -120,10 +121,11 @@ const Header = () => {
 
           {/* Mobile Menu */}
           <div className="mobile-menu" style={{ maxHeight: isMenuOpen ? '300px' : '0', opacity: isMenuOpen ? 1 : 0 }}>
-            <nav style={{ padding: '0.5rem 0 1rem', borderTop: '1px solid rgba(201,168,76,0.12)' }}>
-              <Link to="/"         className="mobile-link" onClick={closeMenu}>Home</Link>
+            <nav style={{ padding: '0.5rem 0 1rem', borderTop: '1px solid rgba(201,168,76,0.15)' }}>
+              <Link to="/" className="mobile-link" onClick={closeMenu}>Home</Link>
               <Link to="/services" className="mobile-link" onClick={closeMenu}>Services</Link>
-              <Link to="/contact"  className="mobile-link" onClick={closeMenu}>Contact</Link>
+              <Link to="/projects" className="mobile-link" onClick={closeMenu}>Featured Projects</Link>
+              <Link to="/contact" className="mobile-link" onClick={closeMenu}>Contact</Link>
             </nav>
           </div>
         </div>
