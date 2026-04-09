@@ -23,7 +23,7 @@ const Services = () => {
       title: 'Web Development',
       subtitle: 'Modern Digital Experiences',
       description: 'We design and build high-performance websites and web applications that captivate users and drive results. From sleek corporate platforms to dynamic e-commerce solutions, our development team combines clean code with compelling design — ensuring your digital presence is fast, responsive, and built to scale with your ambitions.',
-      image: '/web.jpg', alt: 'Web Development',
+      image: '/24.jpg', alt: 'Web Development',
       accent: '#0d9488', accentBg: 'rgba(13,148,136,0.08)',
     },
     {
