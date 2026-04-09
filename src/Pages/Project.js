@@ -17,21 +17,6 @@ const projects = [
     images: ['/00.jpg', '/13.jpg', '/14.jpg', '/15.jpg'],
   },
   {
-    id: 'hotel',
-    accent: '#34d399',
-    accentRgb: '52,211,153',
-    title: 'Hotel Management System',
-    description:
-      'An end-to-end hotel operations platform empowering hospitality businesses to manage reservations, room inventory, housekeeping schedules, guest check-ins, billing, and staff coordination from a single intuitive dashboard — streamlining every touchpoint of the guest experience.',
-    highlights: [
-      'Reservation & Room Management',
-      'Guest Check-in / Check-out',
-      'Housekeeping & Staff Scheduling',
-      'Billing & Invoice Generation',
-    ],
-    images: ['/16.jpg', '/17.jpg', '/18.jpg'],
-  },
-  {
     id: 'construction',
     accent: '#c9a84c',
     accentRgb: '201,168,76',
@@ -45,6 +30,21 @@ const projects = [
       'Architectural Plan Viewer',
     ],
     images: ['/20.jpg', '/22.jpg', '/21.jpg'],
+  },
+  {
+    id: 'hotel',
+    accent: '#34d399',
+    accentRgb: '52,211,153',
+    title: 'Hotel Management System',
+    description:
+      'An end-to-end hotel operations platform empowering hospitality businesses to manage reservations, room inventory, housekeeping schedules, guest check-ins, billing, and staff coordination from a single intuitive dashboard — streamlining every touchpoint of the guest experience.',
+    highlights: [
+      'Reservation & Room Management',
+      'Guest Check-in / Check-out',
+      'Housekeeping & Staff Scheduling',
+      'Billing & Invoice Generation',
+    ],
+    images: ['/16.jpg', '/17.jpg', '/18.jpg'],
   },
 ];
 
