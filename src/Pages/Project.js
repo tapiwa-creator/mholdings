@@ -1,20 +1,10 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Seo from '../Components/Seo';
-
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [pathname]);
-  return null;
-};
+import React, { useState, useCallback } from 'react';
 
 const projects = [
   {
     id: 'school',
-    accent: '#3b82f6',
-    accentRgb: '59,130,246',
+    accent: '#60a5fa',
+    accentRgb: '96,165,250',
     title: 'School Management Portal',
     description:
       'A comprehensive school management ecosystem enabling prospective students to apply for school places online, while enrolled learners can track fees status, submit assignments, access learning materials, and engage in curriculum-related activities — all within a single unified platform.',
@@ -25,6 +15,21 @@ const projects = [
       'Learning Resources & Activities',
     ],
     images: ['/00.jpg', '/13.jpg', '/14.jpg', '/15.jpg'],
+  },
+  {
+    id: 'hotel',
+    accent: '#34d399',
+    accentRgb: '52,211,153',
+    title: 'Hotel Management System',
+    description:
+      'An end-to-end hotel operations platform empowering hospitality businesses to manage reservations, room inventory, housekeeping schedules, guest check-ins, billing, and staff coordination from a single intuitive dashboard — streamlining every touchpoint of the guest experience.',
+    highlights: [
+      'Reservation & Room Management',
+      'Guest Check-in / Check-out',
+      'Housekeeping & Staff Scheduling',
+      'Billing & Invoice Generation',
+    ],
+    images: ['/16.jpg', '/17.jpg', '/18.jpg'],
   },
   {
     id: 'construction',
@@ -41,26 +46,17 @@ const projects = [
     ],
     images: ['/20.jpg', '/22.jpg', '/21.jpg'],
   },
-  {
-    id: 'hotel',
-    accent: '#0d9488',
-    accentRgb: '13,148,136',
-    title: 'Hotel Management System',
-    description:
-      'An end-to-end hotel operations platform empowering hospitality businesses to manage reservations, room inventory, housekeeping schedules, guest check-ins, billing, and staff coordination from a single intuitive dashboard — streamlining every touchpoint of the guest experience.',
-    highlights: [
-      'Reservation & Room Management',
-      'Guest Check-in / Check-out',
-      'Housekeeping & Staff Scheduling',
-      'Billing & Invoice Generation',
-    ],
-    images: ['/16.jpg', '/17.jpg', '/18.jpg'],
-  },
 ];
 
 const CheckIcon = ({ color }) => (
   <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
-    <path d="M2.5 7L5.5 10L11.5 4" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M2.5 7L5.5 10L11.5 4"
+      stroke={color}
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -89,58 +85,56 @@ const ImageSlider = ({ images, accent, accentRgb }) => {
     setActive((a) => (a + 1) % images.length);
   }, [images.length]);
 
-  const handleImageError = (e) => {
-    e.target.src = 'https://via.placeholder.com/800x500?text=Image+Not+Found';
-  };
-
   return (
     <div className="relative w-full h-full overflow-hidden rounded-2xl group" style={{ minHeight: '280px' }}>
+      {/* Image */}
       <img
         key={active}
         src={images[active]}
         alt="Project screenshot"
         className="w-full h-full object-cover"
         style={{ animation: 'imgFadeIn 0.4s ease', minHeight: '280px' }}
-        onError={handleImageError}
       />
 
+      {/* Bottom gradient */}
       <div
         className="absolute inset-x-0 bottom-0 h-20 pointer-events-none"
-        style={{ background: 'linear-gradient(to top, rgba(244,241,235,0.5), transparent)' }}
+        style={{ background: 'linear-gradient(to top, rgba(10,15,30,0.7), transparent)' }}
       />
 
+      {/* Left arrow */}
       {images.length > 1 && (
         <button
           onClick={prev}
           className="absolute left-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100"
           style={{
-            background: 'rgba(244,241,235,0.88)',
+            background: 'rgba(10,15,30,0.72)',
             border: `1px solid rgba(${accentRgb},0.3)`,
             color: accent,
             backdropFilter: 'blur(8px)',
           }}
-          aria-label="Previous image"
         >
           <ChevronLeft />
         </button>
       )}
 
+      {/* Right arrow */}
       {images.length > 1 && (
         <button
           onClick={next}
           className="absolute right-3 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-9 h-9 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100"
           style={{
-            background: 'rgba(244,241,235,0.88)',
+            background: 'rgba(10,15,30,0.72)',
             border: `1px solid rgba(${accentRgb},0.3)`,
             color: accent,
             backdropFilter: 'blur(8px)',
           }}
-          aria-label="Next image"
         >
           <ChevronRight />
         </button>
       )}
 
+      {/* Dot indicators */}
       {images.length > 1 && (
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
           {images.map((_, i) => (
@@ -151,9 +145,8 @@ const ImageSlider = ({ images, accent, accentRgb }) => {
               style={{
                 width: i === active ? '20px' : '6px',
                 height: '6px',
-                background: i === active ? accent : 'rgba(10,15,30,0.25)',
+                background: i === active ? accent : 'rgba(255,255,255,0.35)',
               }}
-              aria-label={`Go to image ${i + 1}`}
             />
           ))}
         </div>
@@ -169,6 +162,7 @@ const ProjectCard = ({ project, reverse }) => {
     <div
       className="flex flex-col lg:flex-row rounded-2xl overflow-hidden transition-all duration-300"
       style={{
+        flexDirection: reverse ? undefined : undefined,
         background: '#ffffff',
         border: `1px solid ${hovered ? `rgba(${project.accentRgb},0.35)` : 'rgba(10,15,30,0.08)'}`,
         transform: hovered ? 'translateY(-4px)' : 'translateY(0)',
@@ -176,16 +170,32 @@ const ProjectCard = ({ project, reverse }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
+      {/* Reorder cols based on reverse */}
       <div className={`flex flex-col w-full ${reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
 
+        {/* Image col */}
         <div className="w-full lg:w-5/12 flex-shrink-0 p-4">
-          <ImageSlider images={project.images} accent={project.accent} accentRgb={project.accentRgb} />
+          <ImageSlider
+            images={project.images}
+            accent={project.accent}
+            accentRgb={project.accentRgb}
+          />
         </div>
 
-        <div className="hidden lg:block flex-shrink-0" style={{ width: '1px', background: 'rgba(10,15,30,0.06)' }} />
-        <div className="block lg:hidden mx-4" style={{ height: '1px', background: 'rgba(10,15,30,0.06)' }} />
+        {/* Divider */}
+        <div
+          className="hidden lg:block flex-shrink-0"
+          style={{ width: '1px', background: 'rgba(10,15,30,0.06)' }}
+        />
+        <div
+          className="block lg:hidden mx-4"
+          style={{ height: '1px', background: 'rgba(10,15,30,0.06)' }}
+        />
 
+        {/* Text col */}
         <div className="flex-1 flex flex-col justify-center gap-5 p-8 lg:p-10">
+
+          {/* Title */}
           <h3
             className="leading-tight"
             style={{
@@ -198,18 +208,27 @@ const ProjectCard = ({ project, reverse }) => {
             {project.title}
           </h3>
 
+          {/* Accent rule */}
           <div
             className="w-10 h-0.5 rounded"
-            style={{ background: `linear-gradient(90deg, ${project.accent}, transparent)` }}
+            style={{
+              background: `linear-gradient(90deg, ${project.accent}, transparent)`,
+            }}
           />
 
+          {/* Description */}
           <p
             className="leading-relaxed"
-            style={{ color: 'rgba(10,15,30,0.55)', lineHeight: 1.85, fontSize: 'clamp(13px, 1.8vw, 15px)' }}
+            style={{
+              color: 'rgba(10,15,30,0.55)',
+              lineHeight: 1.85,
+              fontSize: 'clamp(13px, 1.8vw, 15px)',
+            }}
           >
             {project.description}
           </p>
 
+          {/* Highlights */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             {project.highlights.map((h, i) => (
               <div
@@ -217,11 +236,13 @@ const ProjectCard = ({ project, reverse }) => {
                 className="flex items-center gap-2.5 rounded-xl px-3.5 py-2.5 text-sm"
                 style={{
                   background: `rgba(${project.accentRgb},0.06)`,
-                  border: `1px solid rgba(${project.accentRgb},0.15)`,
+                  border: `1px solid rgba(${project.accentRgb},0.12)`,
                   color: 'rgba(10,15,30,0.7)',
                 }}
               >
-                <span className="flex-shrink-0"><CheckIcon color={project.accent} /></span>
+                <span className="flex-shrink-0">
+                  <CheckIcon color={project.accent} />
+                </span>
                 {h}
               </div>
             ))}
@@ -233,20 +254,8 @@ const ProjectCard = ({ project, reverse }) => {
 };
 
 const FeaturedProjects = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  }, []);
-
   return (
     <>
-      <Seo
-        title="Featured Projects"
-        description="Explore ElevateLT's portfolio of successful projects spanning education management, construction project tracking, and hospitality systems — showcasing our expertise in custom software development."
-        path="/projects"
-      />
-
-      <ScrollToTop />
-
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
         @keyframes imgFadeIn {
@@ -259,7 +268,8 @@ const FeaturedProjects = () => {
         className="min-h-screen overflow-x-hidden"
         style={{ background: '#f4f1eb', fontFamily: "'DM Sans', sans-serif", color: '#0a0f1e' }}
       >
-        <div className="text-center px-6 md:px-20 pt-20 pb-0">
+        {/* Page Header */}
+        <div style={{ textAlign: 'center', padding: 'clamp(3rem,8vw,6rem) clamp(1.5rem,5vw,5rem) 0', width: '100%', boxSizing: 'border-box', margin: '0 auto' }}>
           <h2
             className="mb-4 leading-tight"
             style={{
@@ -280,20 +290,24 @@ const FeaturedProjects = () => {
               maxWidth: '580px',
             }}
           >
-            A curated selection of platforms and systems we've designed and delivered — spanning education, construction, and hospitality.
+            A curated selection of platforms and systems we've designed and delivered — spanning education, hospitality, construction, and architecture.
           </p>
         </div>
 
+        {/* Project Cards */}
         <section
-          className="flex flex-col gap-6 mx-auto"
           style={{
+            width: '100%',
+            boxSizing: 'border-box',
+            margin: '0 auto',
             padding: 'clamp(2rem,5vw,4rem) clamp(1.5rem,5vw,5rem) clamp(3rem,6vw,5rem)',
-            maxWidth: '1400px',
           }}
         >
-          {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} reverse={index % 2 === 1} />
-          ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            {projects.map((project, index) => (
+              <ProjectCard key={project.id} project={project} reverse={index % 2 === 1} />
+            ))}
+          </div>
         </section>
       </div>
     </>
