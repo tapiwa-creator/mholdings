@@ -105,7 +105,7 @@ const Header = () => {
             <nav style={{ display: 'flex', alignItems: 'center', gap: '2rem' }} className="desktop-nav">
               <Link to="/" className="nav-link">Home</Link>
               <Link to="/services" className="nav-link">Services</Link>
-              <Link to="/project" className="nav-link">Featured Projects</Link>
+              <Link to="/projects" className="nav-link">Featured Projects</Link>
               <Link to="/contact" className="nav-link contact-btn">Contact</Link>
             </nav>
 

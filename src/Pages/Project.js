@@ -22,7 +22,7 @@ const projects = [
     accentRgb: '201,168,76',
     title: 'BuildTrack Project Hub',
     description:
-      'A robust construction project management platform paired with architectural drawing capabilities — enabling project managers to track milestones, coordinate contractors, manage budgets, and review architectural plans in one unified environment, from groundbreaking to completion.',
+      'Developed and deployed for an active construction firm, BuildTrack was built to bring order to complex, multi-phase projects. The platform was used to coordinate contractors, track milestones, manage budgets, and review architectural plans — all in one unified environment — from the very first groundbreaking through to final handover.',
     highlights: [
       'Milestone & Timeline Tracking',
       'Contractor Coordination',
@@ -30,6 +30,21 @@ const projects = [
       'Architectural Plan Viewer',
     ],
     images: ['/20.jpg', '/22.jpg', '/21.jpg'],
+  },
+  {
+    id: 'sustainability',
+    accent: '#4ade80',
+    accentRgb: '74,222,128',
+    title: 'Sustainability Planning & Compliance',
+    description:
+      'Delivered across a portfolio of residential and commercial stands, this project focused on embedding sustainability practices and enforcing compliance protocols at every stage of development. From environmental impact assessments to regulatory adherence checks, the solution ensured that each stand met the required standards — helping developers build responsibly and avoid costly non-compliance penalties.',
+    highlights: [
+      'Environmental Impact Assessments',
+      'Regulatory Compliance Enforcement',
+      'Residential & Commercial Stands',
+      'Sustainability Reporting & Audits',
+    ],
+    images: ['/27.jpg'],
   },
   {
     id: 'hotel',
