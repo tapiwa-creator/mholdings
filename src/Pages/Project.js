@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 
 const projects = [
   {
@@ -269,6 +269,10 @@ const ProjectCard = ({ project, reverse }) => {
 };
 
 const FeaturedProjects = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <>
       <style>{`

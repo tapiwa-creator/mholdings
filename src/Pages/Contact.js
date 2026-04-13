@@ -25,7 +25,15 @@ const Contact = () => {
     try {
       await emailjs.send(
         'service_s1dqnqe', 'template_zwqjv3s',
-        { from_name: `${formData.firstName} ${formData.lastName}`, from_email: formData.email, to_email: 'tapiwacomfort086@gmail.com', message: formData.message },
+        { 
+          from_name: `${formData.firstName} ${formData.lastName}`, 
+          from_email: formData.email, 
+          reply_to: formData.email,
+          email: formData.email,
+          user_email: formData.email,
+          to_email: 'tapiwacomfort086@gmail.com', 
+          message: `Sender Email: ${formData.email}\n\nMessage:\n${formData.message}` 
+        },
         'uzzWBFCynj8Q1XEJ-'
       );
       setSubmitStatus({ type: 'success', message: 'Message sent successfully! We will get back to you soon.' });
